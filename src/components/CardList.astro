@@ -1,8 +1,9 @@
 ---
 import Card from '../components/Card.astro';
+import type { Project } from '../layouts/Layout.astro';
 
 interface Props {
-	projects: {slug: string, data: {title: string; tags: []}}[];
+	projects: Project[];
 }
 
 const { projects } = Astro.props;
