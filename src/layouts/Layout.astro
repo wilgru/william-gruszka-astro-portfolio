@@ -8,7 +8,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-const allProjects: {slug: string, data: {title: string; tags: []}}[] = await getCollection('projects');
+const allProjects: {slug: string, data: {title: string; tags: []}}[] = await getCollection('project');
 ---
 
 <!-- Go swiss style? -->
