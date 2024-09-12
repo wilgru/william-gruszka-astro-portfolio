@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allProjects: {slug: string, body: string; data: {title: string; tags: []}}[] = await getCollection('projects');
+  
+  return allProjects.map(project => {
+    return {
+      params: {project: project.slug}, 
+      props: { 
+        title: project.data.title, 
+        body: project.body
+      }
+    }
+  })
+}
+
+const { title, body } = Astro.props;
+---
+<Layout title={title}>
+  <div style="display: flex; flex-direction: column;">
+    <div>{title}</div>
+    
+      <p>
+        {body}
+      </p>
+  </div>
+</Layout>

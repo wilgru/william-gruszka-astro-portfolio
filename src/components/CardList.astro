@@ -1,0 +1,30 @@
+---
+import Card from '../components/Card.astro';
+
+interface Props {
+	projects: {slug: string, data: {title: string; tags: []}}[];
+}
+
+const { projects } = Astro.props;
+---
+
+<ul role="list" class="link-card-grid">
+  {projects.map(project => (
+    <Card
+      href={`/${project.slug}`}
+      title={project.data.title}
+    />
+  ))}
+</ul>
+
+<style>
+  .link-card-grid {
+		display: flex;
+		flex-direction: column;
+		/* grid-template-columns: repeat(auto-fit, minmax(200px, 250px)); */
+		overflow-x: scroll;
+		gap: 0.2rem;
+		padding: 0 0.2rem;
+		margin: 0;
+	}
+</style>
