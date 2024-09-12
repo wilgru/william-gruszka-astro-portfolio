@@ -6,9 +6,18 @@ interface Props {
 	title: string;
 }
 
+export interface Project {
+	slug: string, 
+	body: string,
+	data: {
+		title: string; 
+		tags: []
+	}
+}
+
 const { title } = Astro.props;
 
-const allProjects: {slug: string, data: {title: string; tags: []}}[] = await getCollection('project');
+const projects: Project[] = await getCollection('project');
 ---
 
 <!-- Go swiss style? -->
@@ -25,7 +34,7 @@ const allProjects: {slug: string, data: {title: string; tags: []}}[] = await get
 	<body>
 		<main>
 			<div style="display: flex; flex-direction: row; justify-content: space-between; height: 100%">
-				<CardList projects={allProjects} />
+				<CardList projects={projects} />
 				<slot />
 			</div>
 		</main>
