@@ -10,10 +10,24 @@ const { href, title } = Astro.props;
 <li class="project-item">
 	<a href={href} class="project-item-card"></a>
 	
-	<div class="project-item-info">
+	<div class="project-item-info no-opacity">
 		<p>{title}</p>
 	</div>
 </li>
+
+<script>
+  const projectItem = document.querySelector('li.project-item');
+
+	if (projectItem) {
+		projectItem.addEventListener("mouseover", () => {
+			projectItem.children[1].classList.remove('no-opacity')
+		});
+
+		projectItem.addEventListener('mouseleave', () => {
+			projectItem.children[1].classList.add('no-opacity')
+		});
+	}
+</script>
 
 <style>
 	.project-item {
@@ -38,6 +52,9 @@ const { href, title } = Astro.props;
 	}
 	.project-item-info {
 		width: 10rem;
+	}
+	.no-opacity {
+		opacity: 0;
 	}
 	.link-card > a {
 		width: 100%;
