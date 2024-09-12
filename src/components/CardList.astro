@@ -9,7 +9,7 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<ul role="list" class="link-card-grid">
+<ul role="list" class="link-card-list">
   {projects.map(project => (
     <Card
       href={`/${project.slug}`}
@@ -19,7 +19,8 @@ const { projects } = Astro.props;
 </ul>
 
 <style>
-  .link-card-grid {
+  .link-card-list {
+		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;
 		/* grid-template-columns: repeat(auto-fit, minmax(200px, 250px)); */
