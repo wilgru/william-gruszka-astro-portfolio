@@ -37,8 +37,10 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<main>
+		<aside>
 			<CardList projects={projects} />
+		</aside>
+		<main>
 			<slot/>
 		</main>
 	</body>
@@ -63,9 +65,6 @@ const { title } = Astro.props;
 	body {
 		height: 100vh;
 		margin: 0;
-	}
-	main {
-		height: 100%;
 		font-size: 20px;
 		line-height: 1.6;
 		display: flex; 

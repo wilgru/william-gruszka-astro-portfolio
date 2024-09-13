@@ -18,12 +18,19 @@ export async function getStaticPaths() {
 
 const { title, body } = Astro.props;
 ---
-<Layout title={title}>
-  <div style="display: flex; flex-direction: column;">
-    <div>{title}</div>
-    
-      <p>
-        {body}
-      </p>
-  </div>
+<Layout title={`William Gruszka: ${title}`}>
+  <section class="project-details">
+    <header>
+      {title}
+    </header>
+
+    <p>{body}</p>
+  </section>
 </Layout>
+
+<style>
+  .project-details {
+    display: flex; 
+    flex-direction: column;
+  }
+</style>
