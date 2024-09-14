@@ -1,6 +1,6 @@
 ---
-import Layout, { type Project } from '../layouts/Layout.astro';
-import { getCollection, getEntry } from 'astro:content';
+import Layout, { type Project } from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const projects: Project[] = await getCollection('projects');
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 const { title, body } = Astro.props;
 ---
 <Layout title={`William Gruszka: ${title}`}>
-  <section class="project-details">
+  <section class="project-content">
     <header>
       {title}
     </header>
@@ -29,7 +29,7 @@ const { title, body } = Astro.props;
 </Layout>
 
 <style>
-  .project-details {
+  .project-content {
     display: flex; 
     flex-direction: column;
   }
