@@ -1,14 +1,24 @@
 ---
+import TagPill from '../components/TagPill.astro';
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const tags = await getCollection("tags")
 ---
 
 <Layout title="William Gruszka">
-	<section style="padding: 1rem">
+	<section class="homepage-content">
 		<header>
 			<h1>William Gruszka</h1>
+			<h3> Software Engineer </h3>
+			<ul role="list">
+				{tags.map(tag => (
+					<li>
+						<TagPill tag={tag.data} />
+					</li>
+				))}
+			</ul>
 		</header>
-
-		<!-- <h3 class="text-gradient"> Software Engineer </h3> -->
 
 		<p>
 			William Gruszka is a Full-stack software engineer with experience in agile first development, and a keen interest in industry focused web solutions and progressive web apps. I have experience with reactive web development especially using React and Typescript, and have been exposed to modern industry tools and paradigms including microservice architecture, AWS and goofing off.
@@ -17,21 +27,25 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-	h1 {
+	.homepage-content {
+		display: flex; 
+		flex-direction: column; 
+		gap: 1rem; 
+		padding: 1rem
+	}
+	.homepage-content h1 {
 		font-size: 3rem;
 		font-weight: 300;
 		line-height: 1;
 		margin: 0;
 	}
-	h3 {
+	.homepage-content ul {
+		display: flex;
+		gap: 0.5rem; 
+		padding: 0;
 		margin: 0;
 	}
-	p {
-		margin-bottom: 2rem;
-		font-size: 14px;
-		/* border: 1px solid rgba(var(--accent-light), 25%); */
-		/* background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%)); */
-		/* padding: 1.5rem; */
-		/* border-radius: 8px; */
+	.homepage-content li {
+		list-style: none;
 	}
 </style>

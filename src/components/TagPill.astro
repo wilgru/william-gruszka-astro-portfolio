@@ -1,0 +1,22 @@
+---
+interface Props {
+	tag: {name: string; colour: string};
+}
+
+const { tag } = Astro.props;
+---
+
+<div class="tag-pill" style={`background-color: ${tag.colour}`}>
+	<p>{tag.name}</p>
+</div>
+
+<style>
+	.tag-pill {
+    border: 1px solid black;
+    border-radius: 100px;
+  }
+  .tag-pill > p {
+    font-size: 14px;
+    margin: 0 6px;
+  }
+</style>

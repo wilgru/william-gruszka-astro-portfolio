@@ -13,10 +13,21 @@ export interface Project {
 	collection: 'projects',
 	data: {
 		title: string; 
+		description: string;
+		year: string;
 		tags: {
 			collection: "tag", 
 			id: string,
 		}[]
+	}
+}
+
+export interface Tag {
+	id: string;
+	collection: 'tags',
+	data: {
+		name: string; 
+		colour: string;
 	}
 }
 
@@ -81,5 +92,15 @@ const { title } = Astro.props;
 			Bitstream Vera Sans Mono,
 			Courier New,
 			monospace;
+	}
+	h3 {
+		margin: 0;
+		font-weight: 600;
+	}
+	p {
+		margin: 0;
+		font-size: 14px;
+		line-height: 1.4;
+		font-weight: 300;
 	}
 </style>
