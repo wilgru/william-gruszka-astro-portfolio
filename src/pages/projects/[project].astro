@@ -1,6 +1,7 @@
 ---
-import Layout, { type Project } from '../../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import type { Project } from '../../types/Project.type';
 
 export async function getStaticPaths() {
   const projects: Project[] = await getCollection('projects');
