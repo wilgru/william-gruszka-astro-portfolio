@@ -8,7 +8,7 @@ export interface Project {
     description: string;
     year: string;
     tags: {
-      collection: "tag";
+      collection: "tags";
       id: string;
     }[];
   };

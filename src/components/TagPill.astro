@@ -1,19 +1,23 @@
 ---
+import type { Tag } from '../types/Tag.type';
+
 interface Props {
-	tag: {name: string; colour: string};
+	tag: Tag;
 }
 
 const { tag } = Astro.props;
 ---
 
-<div class="tag-pill" style={`background-color: ${tag.colour}`}>
-	<p>{tag.name}</p>
+<div class="tag-pill" style={`background-color: ${tag.data.colour}`}>
+	<p>{tag.data.name}</p>
 </div>
 
 <style>
 	.tag-pill {
     border: 1px solid black;
     border-radius: 100px;
+    width: fit-content;
+    text-decoration: none;
   }
   .tag-pill > p {
     font-size: 14px;

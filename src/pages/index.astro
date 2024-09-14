@@ -14,7 +14,7 @@ const tags = await getCollection("tags")
 			<ul role="list">
 				{tags.map(tag => (
 					<li>
-						<TagPill tag={tag.data} />
+						<TagPill tag={tag} />
 					</li>
 				))}
 			</ul>
