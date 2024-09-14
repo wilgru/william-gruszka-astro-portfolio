@@ -9,17 +9,19 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<ul role="list" class="link-card-list">
+<ul role="list" class="project-card-list">
   {projects.map(project => (
-    <Card
-      href={`/${project.slug}`}
-      title={project.data.title}
-    />
+		<li>
+			<Card
+				href={`projects/${project.slug}`}
+				project={project}
+			/>
+		</li>
   ))}
 </ul>
 
 <style>
-  .link-card-list {
+  .project-card-list {
 		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;
@@ -28,5 +30,8 @@ const { projects } = Astro.props;
 		gap: 0.2rem;
 		padding: 0 0.2rem;
 		margin: 0;
+	}
+	.project-card-list li {
+		list-style: none;
 	}
 </style>

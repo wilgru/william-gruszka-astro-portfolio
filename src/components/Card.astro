@@ -1,24 +1,26 @@
 ---
+import type { Project } from '../layouts/Layout.astro';
+
 interface Props {
-	title: string;
 	href: string;
+	project: Project;
 }
 
-const { href, title } = Astro.props;
+const { href, project } = Astro.props;
 ---
 
-<li class="project-list-item">
-	<a href={href} class="project-list-item-container">
-		<img class="project-list-item-card" />
+<a href={href} class="project-card">
+	<img/>
 
-		<div class="project-list-item-info no-opacity">
-			<p>{title}</p>
-		</div>
-	</a>
-</li>
+	<div class="no-opacity">
+		<h3>{project.data.title}</h3>
+		<p class="project-card-year">{project.data.year}</p>
+		<p>{project.data.description}</p>
+	</div>
+</a>
 
 <script>
-  const projectItem = document.querySelector('a.project-list-item-container');
+  const projectItem = document.querySelector('a.project-card');
 
 	if (projectItem) {
 		projectItem.addEventListener("mouseover", () => {
@@ -32,53 +34,35 @@ const { href, title } = Astro.props;
 </script>
 
 <style>
-	.project-list-item {
-		list-style: none;
-	}
-	.project-list-item-container {
+	.project-card {
 		flex-shrink: 0;
 		display: flex;
 		gap: 1rem;
 		padding: 1px;
 		text-decoration: none;
 	}
-	.project-list-item-card {
+	.project-card img {
 		display: flex;
 		padding: 1px;
 		background-color: #2f2f2f;
-		background-image: none;
-		background-size: 400%;
-		/* border-radius: 7px; */
-		background-position: 100%;
+		filter: grayscale();
 		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(144, 132, 132, 0.1);
 		width: 25rem;
 		height: 15rem;
-		filter: grayscale();
 	}
-	.project-list-item-info {
+	.project-card div {
 		width: 10rem;
 	}
-	.project-list-item-info > p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
+	.project-card h3, p {
 		color: black;
-		line-height: 1.4;
+	}
+	.project-card-year {
+		font-weight: 600;
 	}
 	.no-opacity {
 		opacity: 0;
 	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
+	.project-card img:is(:hover, :focus-within) {
 		filter: none;
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
 	}
 </style>
