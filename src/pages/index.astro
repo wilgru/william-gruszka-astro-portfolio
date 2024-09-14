@@ -2,6 +2,10 @@
 import TagPill from '../components/TagPill.astro';
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import githubSvg from '../../public/github-logo-fill.svg';
+import linkedinSvg from '../../public/linkedin-logo-fill.svg';
+import envelopeSvg from '../../public/envelope-fill.svg';
+import LinkIcon from '../components/LinkIcon.astro';
 
 const tags = await getCollection("tags")
 ---
@@ -12,6 +16,9 @@ const tags = await getCollection("tags")
 			<h1>William Gruszka</h1>
 			<h3> Software Engineer </h3>
 			<ul role="list">
+				<LinkIcon href={'https://github.com/wilgru'} icon={githubSvg} alt="Github icon" />
+				<LinkIcon href={'https://www.linkedin.com/in/william-gruszka-a03373227/'} icon={linkedinSvg} alt="linkedIn icon" />
+				<LinkIcon href={'mailto:william.gruszka@icloud.com'} icon={envelopeSvg} alt="email icon" />
 				{tags.map(tag => (
 					<li>
 						<TagPill tag={tag} />
@@ -35,6 +42,7 @@ const tags = await getCollection("tags")
 	}
 	.homepage-content ul {
 		display: flex;
+		align-items: center;
 		gap: 0.5rem; 
 		padding: 0;
 		margin: 0;
