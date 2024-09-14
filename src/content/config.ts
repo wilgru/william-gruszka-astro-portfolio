@@ -14,6 +14,8 @@ const projectCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    description: z.string(),
+    year: z.string(),
     tags: z.array(reference("tag")),
     // image: z.string().optional(),
   }),
@@ -22,6 +24,6 @@ const projectCollection = defineCollection({
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
-  tag: tagCollection,
-  project: projectCollection,
+  tags: tagCollection,
+  projects: projectCollection,
 };
