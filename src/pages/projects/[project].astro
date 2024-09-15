@@ -1,31 +1,47 @@
 ---
+import { getEntries, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import type { Project } from '../../types/Project.type';
+import TagPill from '../../components/TagPill.astro';
 
 export async function getStaticPaths() {
-  const projects: Project[] = await getCollection('projects');
+  const projects: CollectionEntry<'projects'>[] = await getCollection('projects');
   
   return projects.map(project => {
     return {
       params: {project: project.slug}, 
       props: { 
-        title: project.data.title, 
-        body: project.body
+        project
       }
     }
   })
 }
 
-const { title, body } = Astro.props;
+const { project } = Astro.props;
+
+const tagsies: CollectionEntry<'tags'>[] = await getEntries(project.data.tags);
+
+const { Content } = await project.render();
 ---
-<Layout title={`William Gruszka: ${title}`}>
+<Layout title={`William Gruszka - ${project.data.title}`}>
   <section class="project-content">
     <header>
-      {title}
-    </header>
+      <a href="/">↩ William Gruszka</a>
+			<h1>{project.data.title}</h1>
+			<ul role="list">
+        <li>
+          <p>{project.data.year}</p>
+        </li>
+				{tagsies.map(tag => (
+					<li>
+						<TagPill tag={tag} />
+					</li>
+				))}
+			</ul>
+		</header>
 
-    <p>{body}</p>
+    <Content />
   </section>
 </Layout>
 
@@ -33,5 +49,7 @@ const { title, body } = Astro.props;
   .project-content {
     display: flex; 
     flex-direction: column;
+		gap: 1rem; 
+		padding: 1rem
   }
 </style>
