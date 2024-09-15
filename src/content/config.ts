@@ -14,8 +14,10 @@ const projectCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    titleImage: z.string(),
     description: z.string(),
     year: z.string(),
+    link: z.string(),
     tags: z.array(reference("tags")),
     // image: z.string().optional(),
   }),
