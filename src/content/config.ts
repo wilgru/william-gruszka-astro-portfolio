@@ -12,15 +12,20 @@ const tagCollection = defineCollection({
 
 const projectCollection = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    titleImage: z.string(),
-    description: z.string(),
-    year: z.string(),
-    link: z.string(),
-    tags: z.array(reference("tags")),
-    // image: z.string().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      image: image()
+        .refine((img) => img.width >= 1080, {
+          message: "GRRR image must be at least 1080 pixels wide!",
+        })
+        .optional(),
+      description: z.string(),
+      year: z.string(),
+      link: z.string(),
+      tags: z.array(reference("tags")),
+      // image: z.string().optional(),
+    }),
 });
 
 // 3. Export a single `collections` object to register your collection(s)

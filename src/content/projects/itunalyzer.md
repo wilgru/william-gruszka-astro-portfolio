@@ -1,6 +1,5 @@
 ---
 title: "Itunalyzer"
-title-image: ""
 description: "CLI program for analyzing your iTunes library"
 year: "2021"
 link: ""
