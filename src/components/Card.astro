@@ -1,19 +1,17 @@
 ---
 
-import { getEntries } from 'astro:content';
+import { getEntries, type CollectionEntry } from 'astro:content';
 import TagPill from './TagPill.astro';
-import type { Project } from '../types/Project.type';
-import type { Tag } from '../types/Tag.type';
 
 interface Props {
 	href: string;
-	project: Project;
+	project: CollectionEntry<'projects'>;
 }
 
 const { href, project } = Astro.props;
 
 // Resolve an array of references
-const tags: Tag[] = await getEntries(project.data.tags);
+const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags);
 ---
 
 <a href={href} class="project-card">
@@ -57,7 +55,6 @@ const tags: Tag[] = await getEntries(project.data.tags);
 		display: flex;
 		gap: 1rem;
 		padding: 1px;
-		text-decoration: none;
 	}
 	.project-card img {
 		display: flex;

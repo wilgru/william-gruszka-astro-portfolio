@@ -1,20 +1,20 @@
 ---
 import TagPill from '../components/TagPill.astro';
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import githubSvg from '../../public/github-logo-fill.svg';
 import linkedinSvg from '../../public/linkedin-logo-fill.svg';
 import envelopeSvg from '../../public/envelope-fill.svg';
 import LinkIcon from '../components/LinkIcon.astro';
 
-const tags = await getCollection("tags")
+const tags: CollectionEntry<'tags'>[] = await getCollection("tags")
 ---
 
 <Layout title="William Gruszka">
 	<section class="homepage-content">
 		<header>
 			<h1>William Gruszka</h1>
-			<h3> Software Engineer </h3>
+			<h3>Software Engineer</h3>
 			<ul role="list">
 				<LinkIcon href={'https://github.com/wilgru'} icon={githubSvg} alt="Github icon" />
 				<LinkIcon href={'https://www.linkedin.com/in/william-gruszka-a03373227/'} icon={linkedinSvg} alt="linkedIn icon" />
@@ -28,7 +28,7 @@ const tags = await getCollection("tags")
 		</header>
 
 		<p>
-			William Gruszka is a Full-stack software engineer with experience in agile first development, and a keen interest in industry focused web solutions and progressive web apps. I have experience with reactive web development especially using React and Typescript, and have been exposed to modern industry tools and paradigms including microservice architecture, AWS and goofing off.
+			Full-stack software engineer with experience in agile first development, and a keen interest in industry focused web solutions and progressive web apps. I have experience with reactive web development especially using React and Typescript, and have been exposed to modern industry tools and paradigms including microservice architecture, AWS and goofing off.
 		</p>
 	</section>
 </Layout>
@@ -39,15 +39,5 @@ const tags = await getCollection("tags")
 		flex-direction: column; 
 		gap: 1rem; 
 		padding: 1rem
-	}
-	.homepage-content ul {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem; 
-		padding: 0;
-		margin: 0;
-	}
-	.homepage-content li {
-		list-style: none;
 	}
 </style>

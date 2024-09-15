@@ -1,8 +1,8 @@
 ---
-import type { Tag } from '../types/Tag.type';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-	tag: Tag;
+	tag: CollectionEntry<'tags'>;
 }
 
 const { tag } = Astro.props;
