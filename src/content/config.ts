@@ -15,7 +15,7 @@ const projectCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      image: image()
+      logo: image()
         .refine((img) => img.width >= 1080, {
           message: "GRRR image must be at least 1080 pixels wide!",
         })
