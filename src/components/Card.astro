@@ -36,17 +36,17 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags);
 </a>
 
 <script>
-  const projectItem = document.querySelector('a.project-card');
+  const projectItem = document.querySelectorAll('a.project-card');
 
-	if (projectItem) {
-		projectItem.addEventListener("mouseover", () => {
-			projectItem.children[1].classList.remove('no-opacity')
+	projectItem.forEach(project => {
+		project.addEventListener("mouseover", () => {
+			project.children[1].classList.remove('no-opacity')
 		});
 
-		projectItem.addEventListener('mouseleave', () => {
-			projectItem.children[1].classList.add('no-opacity')
+		project.addEventListener('mouseleave', () => {
+			project.children[1].classList.add('no-opacity')
 		});
-	}
+	})
 </script>
 
 <style>
