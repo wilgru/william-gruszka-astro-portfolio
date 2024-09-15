@@ -19,13 +19,21 @@ const tags: Tag[] = await getEntries(project.data.tags);
 <a href={href} class="project-card">
 	<img/>
 
-	<div class="no-opacity">
-		<h3>{project.data.title}</h3>
-		<p class="project-card-year">{project.data.year}</p>
-		{tags.map(tag => (
-			<TagPill tag={tag} />
-		))}
-		<p>{project.data.description}</p>
+	<div class="project-card-details no-opacity">
+		<header>
+			<h3>{project.data.title}</h3>
+			<ul>
+				{tags.map(tag => (
+					<li>
+						<TagPill tag={tag} />
+					</li>
+				))}
+			</ul>
+			
+			<p>{project.data.description}</p>
+		</header>
+
+		<p>{project.data.year}</p>
 	</div>
 </a>
 
@@ -60,11 +68,20 @@ const tags: Tag[] = await getEntries(project.data.tags);
 		width: 25rem;
 		height: 15rem;
 	}
-	.project-card div {
+	.project-card-details {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 		width: 10rem;
 	}
-	.project-card-year {
-		font-weight: 400;
+	.project-card-details ul {
+		display: flex;
+		flex-direction: row;
+		padding: 0;
+		margin-bottom: 1rem;
+	}
+	.project-card-details li {
+		list-style: none;
 	}
 	.no-opacity {
 		opacity: 0;
