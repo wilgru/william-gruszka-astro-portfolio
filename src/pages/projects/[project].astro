@@ -2,8 +2,8 @@
 import { getEntries, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import type { Project } from '../../types/Project.type';
 import TagPill from '../../components/TagPill.astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const projects: CollectionEntry<'projects'>[] = await getCollection('projects');
@@ -28,7 +28,7 @@ const { Content } = await project.render();
   <section class="project-content">
     <header>
       <a href="/">↩ William Gruszka</a>
-			<h1>{project.data.title}</h1>
+      {project.data.logo ? <Image src={project.data.logo} alt={`${project.data.title} logo`} width={500}/> : <h1>{project.data.title}</h1>}
 			<ul role="list">
         <li>
           <p>{project.data.year}</p>
