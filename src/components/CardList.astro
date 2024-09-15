@@ -13,7 +13,7 @@ const { projects } = Astro.props;
   {projects.map(project => (
 		<li>
 			<Card
-				href={`projects/${project.slug}`}
+				href={`/projects/${project.slug}`}
 				project={project}
 			/>
 		</li>
