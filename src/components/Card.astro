@@ -15,7 +15,7 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags);
 ---
 
 <a href={href} class="project-card">
-	<img/>
+	<img src="STATIC">
 
 	<div class="project-card-details no-opacity">
 		<header>
@@ -36,15 +36,22 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags);
 </a>
 
 <script>
-  const projectItem = document.querySelectorAll('a.project-card');
+  const projectCards = document.querySelectorAll('a.project-card');
 
-	projectItem.forEach(project => {
-		project.addEventListener("mouseover", () => {
-			project.children[1].classList.remove('no-opacity')
+	projectCards.forEach(projectCard => {
+		if (window.location.href.includes(projectCard.attributes.href.value)) { 
+			projectCard.children[0].attributes.src.value = "GIF"
+			return
+		}
+
+		projectCard.addEventListener("mouseover", () => {
+			projectCard.children[0].attributes.src.value = "GIF"
+			projectCard.children[1].classList.remove('no-opacity')
 		});
 
-		project.addEventListener('mouseleave', () => {
-			project.children[1].classList.add('no-opacity')
+		projectCard.addEventListener('mouseleave', () => {
+			projectCard.children[0].attributes.src.value = "STATIC"
+			projectCard.children[1].classList.add('no-opacity')
 		});
 	})
 </script>
@@ -83,7 +90,7 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags);
 	.no-opacity {
 		opacity: 0;
 	}
-	.project-card img:is(:hover, :focus-within) {
+	/* .project-card img:is(:hover, :focus-within) {
 		filter: none;
-	}
+	} */
 </style>
