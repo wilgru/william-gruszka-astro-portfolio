@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import TagPill from '../../components/TagPill.astro';
 import { Image } from 'astro:assets';
+import LinkButton from '../../components/LinkButton.astro';
 
 export async function getStaticPaths() {
   const projects: CollectionEntry<'projects'>[] = await getCollection('projects');
@@ -42,6 +43,12 @@ const { Content } = await project.render();
 		</header>
 
     <Content />
+
+    <ul class="links-list">
+      {project.data.links?.map(link => {
+        return <LinkButton title={link.title} href={link.link} iconName={link.icon} alt={link.title}/>
+      })}
+    </ul>
   </section>
 </Layout>
 
@@ -51,5 +58,11 @@ const { Content } = await project.render();
     flex-direction: column;
 		gap: 1rem; 
 		padding: 1rem
+  }
+  .links-list {
+    display: flex; 
+    flex-direction: column;
+    align-items: baseline;
+    margin-top: 1rem;
   }
 </style>

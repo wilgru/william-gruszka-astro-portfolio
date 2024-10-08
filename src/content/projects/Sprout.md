@@ -4,9 +4,9 @@ logo: "./sprout-logo.png"
 description: "2 player competitive turn based strategy game"
 year: "2021"
 links:
-  - title: "Play Sprout"
+  - title: "play Sprout"
     link: "https://www.lexaloffle.com/bbs/?tid=44692"
-    icon: "./sprout-logo.png"
+    icon: "game-controller"
 tags:
   - pico8
 ---

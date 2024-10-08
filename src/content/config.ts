@@ -28,9 +28,7 @@ const projectCollection = defineCollection({
           z.object({
             title: z.string(),
             link: z.string(),
-            icon: image().refine((img) => img.width >= 1080, {
-              message: "GRRR image must be at least 1080 pixels wide!",
-            }),
+            icon: z.string(),
           })
         )
         .optional(),

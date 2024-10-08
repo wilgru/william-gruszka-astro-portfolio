@@ -1,0 +1,49 @@
+---
+import gameControllerSvg from '../../public/game-controller.svg';
+import codeSvg from '../../public/code.svg';
+import cursorSvg from '../../public/cursor.svg';
+
+interface Props {
+  title: string;
+	href: string;
+  iconName: string;
+  alt: string;
+}
+
+const { title, href, iconName, alt } = Astro.props;
+
+let icon: ImageMetadata | undefined
+switch (iconName) {
+  case "game-controller":
+    icon = gameControllerSvg
+    break;
+
+  case "code":
+    icon = codeSvg
+    break;
+
+  case "cursor":
+    icon = cursorSvg
+    break;
+
+  default:
+    break;
+}
+---
+<a class="link-button" target="_blank" href={href}>
+  <img src={icon?.src} alt={alt} />
+  <p>{title}</p>
+</a>
+
+<style>
+	.link-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .link-button img {
+    width: 22px;
+		height: 22px;
+  }
+</style>
