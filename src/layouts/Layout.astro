@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import CardList from '../components/CardList.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const projects: CollectionEntry<'projects'>[] = await getCollection('projects');
+const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.data.year < b.data.year ? 1 : -1)
 
 const { title } = Astro.props;
 ---
@@ -20,12 +22,13 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
-		<aside>
-			<CardList projects={projects} />
+		<aside transition:persist>
+			<CardList projects={sortedProjects} />
 		</aside>
-		<main>
+		<main transition:animate="slide">
 			<slot/>
 		</main>
 	</body>
