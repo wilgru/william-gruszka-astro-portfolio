@@ -5,7 +5,7 @@ description: "Web based note taking app inspired by the 'zettelkasten' note taki
 year: "2023"
 links:
   - title: "live demo"
-    link: ""
+    link: "https://slipbox-react-app.fly.dev/"
     icon: "cursor"
   - title: "source code"
     link: "https://github.com/wilgru/slipbox-react-app"
