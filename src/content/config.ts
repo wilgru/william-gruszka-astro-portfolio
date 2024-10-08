@@ -23,6 +23,17 @@ const projectCollection = defineCollection({
         .optional(),
       description: z.string(),
       year: z.string(),
+      links: z
+        .array(
+          z.object({
+            title: z.string(),
+            link: z.string(),
+            icon: image().refine((img) => img.width >= 1080, {
+              message: "GRRR image must be at least 1080 pixels wide!",
+            }),
+          })
+        )
+        .optional(),
       tags: z.array(reference("tags")),
       // image: z.string().optional(),
     }),
