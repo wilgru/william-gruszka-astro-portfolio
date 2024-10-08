@@ -8,6 +8,7 @@ import envelopeSvg from '../../public/envelope-fill.svg';
 import LinkIcon from '../components/LinkIcon.astro';
 
 const tags: CollectionEntry<'tags'>[] = await getCollection("tags")
+const filteredTags: CollectionEntry<'tags'>[] = tags.filter(tag => tag.data.showcase)
 ---
 
 <Layout title="William Gruszka">
@@ -19,9 +20,9 @@ const tags: CollectionEntry<'tags'>[] = await getCollection("tags")
 				<LinkIcon href={'https://github.com/wilgru'} icon={githubSvg} alt="Github icon" />
 				<LinkIcon href={'https://www.linkedin.com/in/william-gruszka-a03373227/'} icon={linkedinSvg} alt="linkedIn icon" />
 				<LinkIcon href={'mailto:william.gruszka@icloud.com'} icon={envelopeSvg} alt="email icon" />
-				{tags.map(tag => (
+				{filteredTags.map(filteredTag => (
 					<li>
-						<TagPill tag={tag} />
+						<TagPill tag={filteredTag} />
 					</li>
 				))}
 			</ul>

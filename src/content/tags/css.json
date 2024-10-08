@@ -1,4 +1,5 @@
 {
   "name": "CSS",
-  "colour": "#5c79ed"
+  "colour": "#5c79ed",
+  "showcase": false
 }

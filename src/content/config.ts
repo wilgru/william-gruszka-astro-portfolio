@@ -7,6 +7,7 @@ const tagCollection = defineCollection({
   schema: z.object({
     name: z.string(),
     colour: z.string(),
+    showcase: z.boolean(),
   }),
 });
 
@@ -22,7 +23,6 @@ const projectCollection = defineCollection({
         .optional(),
       description: z.string(),
       year: z.string(),
-      link: z.string(),
       tags: z.array(reference("tags")),
       // image: z.string().optional(),
     }),

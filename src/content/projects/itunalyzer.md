@@ -2,7 +2,6 @@
 title: "Itunalyzer"
 description: "CLI program for analyzing your iTunes library"
 year: "2021"
-link: ""
 # author: ben-holmes # references `src/content/authors/ben-holmes.json`
 tags:
   - python # references `src/content/blog/python.json`

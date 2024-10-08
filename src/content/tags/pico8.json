@@ -1,4 +1,5 @@
 {
   "name": "PICO-8",
-  "colour": "#bb54ff"
+  "colour": "#bb54ff",
+  "showcase": false
 }

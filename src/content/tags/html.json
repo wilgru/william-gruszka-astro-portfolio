@@ -1,4 +1,5 @@
 {
   "name": "HTML",
-  "colour": "#f79b45"
+  "colour": "#f79b45",
+  "showcase": false
 }

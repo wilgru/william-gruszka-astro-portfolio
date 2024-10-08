@@ -3,7 +3,6 @@ title: "Sprout"
 logo: "./sprout-logo.png"
 description: "A 2 player competitive turn based strategy game"
 year: "2021"
-link: "https://www.lexaloffle.com/bbs/?tid=44692"
 tags:
   - pico8
 ---

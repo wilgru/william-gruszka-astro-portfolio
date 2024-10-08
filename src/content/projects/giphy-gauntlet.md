@@ -3,7 +3,6 @@ title: "Giphy Gauntlet"
 # logo: "./sprout-logo.png"
 description: "A highest score word guessing game using GIFs"
 year: "2022"
-link: ""
 tags:
   - html
   - css
