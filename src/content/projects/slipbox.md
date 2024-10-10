@@ -1,6 +1,7 @@
 ---
 title: "SlipBox"
 # logo: "./sprout-logo.png"
+staticImage: "./optomify-static.png"
 description: "Web based note taking app inspired by the 'zettelkasten' note taking method"
 year: "2023"
 links:

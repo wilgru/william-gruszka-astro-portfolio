@@ -1,5 +1,6 @@
 ---
 title: "Itunalyzer"
+staticImage: "./optomify-static.png"
 description: "CLI program for analyzing your iTunes library"
 year: "2021"
 # author: ben-holmes # references `src/content/authors/ben-holmes.json`

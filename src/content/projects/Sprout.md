@@ -1,6 +1,7 @@
 ---
 title: "Sprout"
 logo: "./sprout-logo.png"
+staticImage: "./sprout-static.png"
 description: "2 player competitive turn based strategy game"
 year: "2021"
 links:
