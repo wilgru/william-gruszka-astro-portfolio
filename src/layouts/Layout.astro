@@ -25,12 +25,13 @@ const { title } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body>
-		<aside transition:persist>
-			<CardList projects={sortedProjects} />
-		</aside>
-		<main transition:animate="slide">
+		<main transition:animate="fade">
 			<slot/>
 		</main>
+
+		<aside transition:persist>
+			<CardList projects={sortedProjects} transition:persist/>
+		</aside>
 	</body>
 </html>
 
@@ -58,6 +59,7 @@ const { title } = Astro.props;
 		display: flex; 
 		flex-direction: row; 
 		justify-content: space-between; 
+		gap: 3rem;
 	}
 	code {
 		font-family:
