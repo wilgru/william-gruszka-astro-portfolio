@@ -24,11 +24,12 @@ const { projects } = Astro.props;
   .project-card-list {
 		flex-shrink: 0;
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		align-items: baseline;
 		/* grid-template-columns: repeat(auto-fit, minmax(200px, 250px)); */
-		overflow-y: scroll;
-		gap: 0.1rem;
-		padding: 0 0.2rem;
+		overflow-x: scroll;
+		gap: 0.5rem;
+		padding: 0 0.5rem;
 		margin: 0;
 		height: 100%;
 	}

@@ -16,46 +16,37 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 ---
 
 <a href={href} class="project-card">
+	<!-- {pathname.includes(href) ? <Image src={project.data.staticImage} alt={`${project.data.title} demo image`}/> : <img alt="yoo"/>} -->
+	<Image src={project.data.staticImage} alt={`${project.data.title} demo image`} height={200}/>
+
 	<div class="project-card-details no-opacity">
 		<header>
 			<h3>{project.data.title}</h3>
-			<ul>
+			<!-- <ul>
 				{tags.map(tag => (
 					<li>
 						<TagPill tag={tag} />
 					</li>
 				))}
-			</ul>
+			</ul> -->
 			
 			<p>{project.data.description}</p>
 		</header>
-
+		
 		<p>{project.data.year}</p>
 	</div>
-
-	<!-- {pathname.includes(href) ? <Image src={project.data.staticImage} alt={`${project.data.title} demo image`}/> : <img alt="yoo"/>} -->
-	<Image src={project.data.staticImage} alt={`${project.data.title} demo image`}/>
 </a>
 
 <style>
 	.project-card {
 		flex-shrink: 0;
 		display: flex;
-		gap: 1rem;
-		padding: 1px;
-	}
-	.project-card img {
-		display: flex;
-		padding: 1px;
-		/* transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1); */
-		width: 25rem;
-		height: 15rem;
+		flex-direction: column;
 	}
 	.project-card-details {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		width: 10rem;
 	}
 	.project-card-details ul {
 		display: flex;
