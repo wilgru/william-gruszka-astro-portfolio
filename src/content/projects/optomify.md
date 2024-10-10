@@ -5,15 +5,17 @@ staticImage: "./optomify-static.png"
 description: "Optometry practice management platform"
 year: "2022"
 links:
-  - title: "live demo"
-    link: ""
-    icon: "cursor"
+  # - title: "live demo"
+  #   link: ""
+  #   icon: "cursor"
   - title: "source code"
     link: "https://github.com/wilgru/optomify"
     icon: "code"
 tags:
   - react
   - javascript
+  - graphql
+  - mongodb
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
