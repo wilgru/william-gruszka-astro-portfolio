@@ -29,7 +29,7 @@ const { Content } = await project.render();
   <section class="project-content">
     <header>
       <a href="/">↩ William Gruszka</a>
-      {project.data.logo ? <Image src={project.data.logo} alt={`${project.data.title} logo`} width={500}/> : <h1>{project.data.title}</h1>}
+      {project.data.logo ? <Image src={project.data.logo} alt={`${project.data.title} logo`} width={300}/> : <h1>{project.data.title}</h1>}
 			<ul role="list">
         <li>
           <p>{project.data.year}</p>
