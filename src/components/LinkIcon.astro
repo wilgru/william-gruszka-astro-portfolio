@@ -1,14 +1,56 @@
 ---
+import githubSvg from '../../public/github-logo-fill.svg';
+import linkedinSvg from '../../public/linkedin-logo-fill.svg';
+import envelopeSvg from '../../public/envelope-fill.svg';
+import newspaperSvg from '../../public/newspaper.svg';
+import gameControllerSvg from '../../public/game-controller.svg';
+import codeSvg from '../../public/code.svg';
+import cursorSvg from '../../public/cursor.svg';
+
 interface Props {
 	href: string;
-  icon: ImageMetadata;
+  iconName: string;
   alt: string;
 }
 
-const { href, icon, alt } = Astro.props;
+const { href, iconName, alt } = Astro.props;
+
+let icon: ImageMetadata | undefined
+switch (iconName) {
+  case "github-logo":
+    icon = githubSvg
+    break;
+
+  case "linkedin-logo":
+    icon = linkedinSvg
+    break;
+
+  case "envelope":
+    icon = envelopeSvg
+    break;
+
+  case "newspaper":
+    icon = newspaperSvg
+    break;
+
+  case "game-controller":
+    icon = gameControllerSvg
+    break;
+
+  case "code":
+    icon = codeSvg
+    break;
+
+  case "cursor":
+    icon = cursorSvg
+    break;
+
+  default:
+    break;
+}
 ---
 <a class="link-icon" target="_blank" href={href}>
-  <img src={icon.src} alt={alt} />
+  <img src={icon?.src} alt={alt} />
 </a>
 
 <style>

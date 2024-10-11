@@ -1,14 +1,9 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
-import CardList from '../components/CardList.astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
 
 interface Props {
 	title: string;
 }
-
-const projects: CollectionEntry<'projects'>[] = await getCollection('projects');
-const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.data.year < b.data.year ? 1 : -1)
 
 const { title } = Astro.props;
 ---
@@ -28,10 +23,6 @@ const { title } = Astro.props;
 		<main transition:animate="fade">
 			<slot/>
 		</main>
-
-		<aside transition:persist>
-			<CardList projects={sortedProjects} transition:persist/>
-		</aside>
 	</body>
 </html>
 
@@ -53,10 +44,10 @@ const { title } = Astro.props;
 	}
 	body {
 		height: 100vh;
-		margin: 0;
+		margin: 0 15rem;
 		font-size: 20px;
-		line-height: 1.6;
 		display: flex; 
+		gap: 2rem;
 		flex-direction: column; 
 		justify-content: space-between; 
 	}
