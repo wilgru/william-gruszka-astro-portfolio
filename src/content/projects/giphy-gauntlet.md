@@ -17,6 +17,4 @@ tags:
   - javascript
 ---
 
-Giphy Gauntlet is an app that I built a long time ago when I was learning the fundamentals of web development, built using pure HTML, JavaScript and CSS.
-
-The site has a couple bugs and the code itself isn’t the prettiest, but from a users perspective its still a very playable game with cool features, animations and a unique style which together gives this little web game a leg to stand on.
+“But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness."
