@@ -42,7 +42,9 @@ const { Content } = await project.render();
 			</ul>
 		</header>
 
-    <Content />
+    <section>
+      <Content />
+    </section>
 
     <ul class="links-list">
       {project.data.links?.map(link => {
@@ -63,6 +65,18 @@ const { Content } = await project.render();
     display: flex; 
     flex-direction: column;
 		gap: 0.5rem;
+  }
+  .project-content section {
+    display: flex; 
+    flex-direction: column;
+		gap: 0.5rem;
+    padding-right: 20rem;
+  }
+  .project-content a {
+    opacity: 0.7;
+  }
+  .project-content a:hover {
+    opacity: 1;
   }
   .links-list {
     display: flex; 

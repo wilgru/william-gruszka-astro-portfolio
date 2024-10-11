@@ -8,24 +8,18 @@ import envelopeSvg from '../../public/envelope-fill.svg';
 import LinkIcon from '../components/LinkIcon.astro';
 
 const tags: CollectionEntry<'tags'>[] = await getCollection("tags")
-const filteredTags: CollectionEntry<'tags'>[] = tags.filter(tag => tag.data.showcase)
 ---
 
 <Layout title="William Gruszka">
 	<section class="homepage-content">
 		<header>
 			<h1>William Gruszka</h1>
-			<h3>Software Engineer</h3>
-			<ul role="list">
+			<summary>
+				<h3>Software Engineer</h3>
 				<LinkIcon href={'https://github.com/wilgru'} icon={githubSvg} alt="Github icon" />
 				<LinkIcon href={'https://www.linkedin.com/in/william-gruszka-a03373227/'} icon={linkedinSvg} alt="linkedIn icon" />
 				<LinkIcon href={'mailto:william.gruszka@icloud.com'} icon={envelopeSvg} alt="email icon" />
-				{filteredTags.map(filteredTag => (
-					<li>
-						<TagPill tag={filteredTag} />
-					</li>
-				))}
-			</ul>
+			</summary>
 		</header>
 
 		<p>
@@ -40,5 +34,11 @@ const filteredTags: CollectionEntry<'tags'>[] = tags.filter(tag => tag.data.show
 		flex-direction: column; 
 		gap: 1rem; 
 		padding: 1rem
+	}
+	.homepage-content summary {
+		display: flex; 
+		flex-direction: row; 
+		align-items: center;
+		gap: 0.5rem; 
 	}
 </style>
