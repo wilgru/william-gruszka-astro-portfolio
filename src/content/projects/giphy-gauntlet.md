@@ -1,8 +1,7 @@
 ---
 title: "Giphy Gauntlet"
-# logo: "./sprout-logo.png"
-staticImage: "./optomify-static.png"
-description: "High scoring word guessing game using GIFs"
+logo: "./giphy-gauntlet-logo.png"
+description: "High scoring, word guessing game using GIFs"
 year: "2022"
 links:
   - title: "play Giphy Gauntlet"

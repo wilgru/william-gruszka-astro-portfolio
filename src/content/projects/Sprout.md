@@ -1,8 +1,7 @@
 ---
 title: "Sprout"
 logo: "./sprout-logo.png"
-staticImage: "./sprout-static.png"
-description: "2 player competitive strategy game"
+description: "8-bit style, 2 player competitive strategy game"
 year: "2021"
 links:
   - title: "play Sprout"
