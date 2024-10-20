@@ -17,13 +17,10 @@ const projectCollection = defineCollection({
     z.object({
       title: z.string(),
       logo: image()
-        .refine((img) => img.width >= 1080, {
-          message: "GRRR image must be at least 1080 pixels wide!",
+        .refine((img) => img.width >= 600, {
+          message: "GRRR image must be at least 600 pixels wide!",
         })
         .optional(),
-      staticImage: image().refine((img) => img.width >= 1080, {
-        message: "GRRR image must be at least 1080 pixels wide!",
-      }),
       description: z.string(),
       year: z.string(),
       links: z
@@ -36,7 +33,7 @@ const projectCollection = defineCollection({
         )
         .optional(),
       tags: z.array(reference("tags")),
-      // image: z.string().optional(),
+      archived: z.boolean().optional(),
     }),
 });
 

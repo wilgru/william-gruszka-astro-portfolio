@@ -2,7 +2,7 @@
 import { getEntries, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-import TagPill from '../../components/TagPill.astro';
+import Pill from '../../components/Pill.astro';
 import { Image } from 'astro:assets';
 import LinkButton from '../../components/LinkButton.astro';
 
@@ -28,7 +28,7 @@ const { Content } = await project.render();
 <Layout title={`William Gruszka - ${project.data.title}`}>
   <section class="project-content">
     <header>
-      <a href="/">↩ William Gruszka</a>
+      <!-- <a href="/">↩ William Gruszka</a> -->
       {project.data.logo ? <Image src={project.data.logo} alt={`${project.data.title} logo`} height={100}/> : <h1>{project.data.title}</h1>}
 			<ul role="list">
         <li>
@@ -36,7 +36,7 @@ const { Content } = await project.render();
         </li>
 				{tagsies.map(tag => (
 					<li>
-						<TagPill tag={tag} />
+						<Pill name={tag.data.name} background={tag.data.colour} border={'black'} />
 					</li>
 				))}
 			</ul>

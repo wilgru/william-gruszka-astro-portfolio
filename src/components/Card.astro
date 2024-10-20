@@ -1,6 +1,6 @@
 ---
 import { getEntries, type CollectionEntry } from 'astro:content';
-import TagPill from './TagPill.astro';
+import Pill from './Pill.astro';
 import { Image } from 'astro:assets';
 import LinkIcon from './LinkIcon.astro';
 
@@ -19,22 +19,25 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 <article class="project-card">
 	<!-- {pathname.includes(href) ? <Image src={project.data.staticImage} alt={`${project.data.title} demo image`}/> : <img alt="yoo"/>} -->
 	<header>
-		{project.data.logo ? <Image src={project.data.logo} alt={`${project.data.title} logo`} width={250}/> : <h1>{project.data.title}</h1>}
+		<!-- {project.data.logo ? <Image src={project.data.logo} alt={`${project.data.title} logo`} width={250} quality={'max'}/> : <h1>{project.data.title}</h1>} -->
+		{project.data.logo ? <img src={project.data.logo.src} alt={`${project.data.title} logo`} width={250}/> : <h1>{project.data.title}</h1>}
 	</header>
 
 	<ul>
 		<li>{project.data.year}</li>
 		{tags.map(tag => (
 			<li>
-				<TagPill tag={tag} />
+				<Pill name={tag.data.name} background={tag.data.colour} border={'black'} />
 			</li>
 		))}
+
+		{project.data.archived && <li><Pill name={"archived"} background={'white'} border={'gray'} /></li>}
 	</ul>
 	
 	<p>{project.data.description}</p>
 
 	<ul>
-		{project.body && <li> <LinkIcon href={href} iconName={"newspaper"} alt={project.data.title}/></li>}
+		{project.body && <li><LinkIcon href={href} iconName={"book-open-text"} alt={project.data.title}/></li>}
 		
 		{project.data.links?.map(link => (
 			<li>

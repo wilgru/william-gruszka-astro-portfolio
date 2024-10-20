@@ -2,14 +2,16 @@
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-	tag: CollectionEntry<'tags'>;
+  name: string
+  background: string
+  border: string
 }
 
-const { tag } = Astro.props;
+const { name, background, border } = Astro.props;
 ---
 
-<div class="tag-pill" style={`background-color: ${tag.data.colour}`}>
-	<p>{tag.data.name}</p>
+<div class="tag-pill" style={`background-color: ${background}; border-color: ${border}; color: ${border}`}>
+	<p>{name}</p>
 </div>
 
 <style>
