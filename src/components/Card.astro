@@ -37,7 +37,7 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 	<p>{project.data.description}</p>
 
 	<ul>
-		{project.body && <li><LinkIcon href={href} iconName={"book-open-text"} alt={project.data.title}/></li>}
+		{project.body && <li><LinkIcon href={href} iconName={"book-open-text"} alt={`More on ${project.data.title}`}/></li>}
 		
 		{project.data.links?.map(link => (
 			<li>
