@@ -4,7 +4,7 @@ logo: "./sprout-logo.png"
 description: "8-bit style, 2 player competitive strategy game"
 year: "2021"
 links:
-  - title: "play Sprout"
+  - title: "Play Sprout"
     link: "https://www.lexaloffle.com/bbs/?tid=44692"
     icon: "game-controller"
 tags:

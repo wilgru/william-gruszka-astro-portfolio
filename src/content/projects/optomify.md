@@ -4,10 +4,10 @@ title: "Optomify"
 description: "Tailor made practice management solution built for use in optometry practices"
 year: "2022"
 links:
-  # - title: "live demo"
+  # - title: "Live demo"
   #   link: ""
   #   icon: "cursor"
-  - title: "source code"
+  - title: "Source code"
     link: "https://github.com/wilgru/optomify"
     icon: "code"
 tags:
