@@ -30,9 +30,9 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 			</li>
 		))}
 
-		<li>{project.data.year}</li>
+		{project.data.archived && <li><Pill name={"archived"} backgroundColour={'#ececec'} textColour={'#535353'} /></li>}
 
-		{project.data.archived && <li><Pill name={"archived"} backgroundColour={'snow'} textColour={'darkgray'} /></li>}
+		<li><Pill name={project.data.year} backgroundColour={'#ececec'} textColour={'#535353'} /> </li>
 	</ul>
 	
 	<p>{project.data.description}</p>

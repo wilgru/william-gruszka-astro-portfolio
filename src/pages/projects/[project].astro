@@ -31,14 +31,14 @@ const { Content } = await project.render();
       <a href="/">↩ William Gruszka</a>
       {project.data.logo ? <Image src={project.data.logo} alt={`${project.data.title} logo`} height={100}/> : <h1>{project.data.title}</h1>}
 			<ul role="list">
-        <li>
-          <p>{project.data.year}</p>
-        </li>
 				{tagsies.map(tag => (
 					<li>
 						<Pill name={tag.data.name} />
 					</li>
 				))}
+        <li>
+          <Pill name={project.data.year} backgroundColour={'#ececec'} textColour={'#535353'} /> 
+        </li>
 			</ul>
 		</header>
 
