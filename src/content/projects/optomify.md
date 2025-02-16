@@ -1,6 +1,6 @@
 ---
 title: "Optomify"
-# logo: "./sprout-logo.png"
+logo: "./optomify-logo.png"
 description: "Tailor made practice management solution built for use in optometry practices"
 year: "2022"
 links:
