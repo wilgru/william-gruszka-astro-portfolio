@@ -1,7 +1,7 @@
 ---
 title: "SlipBox"
 logo: "./slipbox-logo.png"
-description: "Web based note taking app inspired by the 'zettelkasten' note taking method"
+description: "A stream of consciousness note taking web app where you can view your notes in different ways"
 year: "2023"
 links:
   - title: "Live demo"
@@ -18,14 +18,20 @@ tags:
 
 SlipStream is a stream of consciousness note taking app where you can view your notes in different ways.
 
-## Background - the context or problems that led to the development of the project
+## Problem
 
-This app was built to best suit how I take notes, especially for work. I prefer to bound a piece of information by the dated it was conceived, so that I can see how my information comes together cronologicly (like a diary), but find when I need to reference a piece of information Ive noted down, I need to rely on how my notes are organised to find them but also benefit from having notes of the same concern visibly together in one place. Not many apps Ive found do this, with existing apps I usually find myself having to manually find an existing note to add a piece of information to - but because all my information is just one piece of text that makes up that note, you loose that date metadata on a per information basis, and makes the date of the entire note less meaningful. not to mention the extra effort you have to put into to worrying about formatting, page hierarchy, etc.
+I have a particular note taking style (specifically for work) where I like to have creation dates associated with every note I take, so that I can see how my information comes together chronologically, like a diary. But I also want to be able to structure and organise my notes to be able to find and view them in a focused context. Specifically, I like to view my notes visibly together in one place, like a structured document.
 
-anything from company news updates to information about a feature im working on.
+With traditional note taking apps I cant really achieve both functionalities. I can keep information in a single note/document for contextual organisation, but forfeit date metadata per note while also now having to worry about manually formatting and structuring the document, which often feels arbitrary. I could keep a separate dated note per piece of information, but this makes information hard to find at a glance (especially notes with no title) and is overkill for notes that are only one or two sentances long.
 
-## objectives - acceptance criteria
+## Solution
 
-## Tech Stack - and why this tack
+The solution Ive come up with is an app that takes the best of both worlds, by allowing you to create individual notes with dates and other metadata that are compiled into automatically formatted documents called 'journals'. With this approach, your notes are treated like interchangable building blocks, that can be rearranged and grouped in ways that lets you take your existing notes and view them in different ways. For example, using pins and flags on notes can help you filter notes more granularly, and the ability to associate notes with multiple journals means you can view the same notes in different focused contexts.
+
+## Tech Stack
+
+I chose to build this SlipStream as a React SPA web app with TypeScript, with a small open source and self hosted BAAS called Pocketbase. I chose React because its the technology I'm most proficient at, and although its not the most ideal choice for an interactive application, it allowed me to get the project off the ground weth less friction and if I were to treat this like an actual product, it would be able to reach more users across different platforms quickly and easily via the browser, and can prioritise packaging it into a native desktop applications using a framework like Electron.
+
+I chose Pocketbase mainly because its lightweight, easy to use and self hosted, which felt like an appropriate option for a casual hobby project. I also thought it was an interesting new tool and thought this project would be a good opportunity to try it. I've had the assumption from the beginning though that if I wanted to take this project more seriously it would have to be replaced with a more production ready BAAS alternative like Supabase or Firebase, or even build my own backend if the necessity arises.
 
 ## Design?
