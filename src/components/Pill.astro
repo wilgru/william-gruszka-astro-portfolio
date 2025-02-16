@@ -3,26 +3,27 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   name: string
-  background: string
-  border: string
+  backgroundColour?: string
+  textColour?: string
 }
 
-const { name, background, border } = Astro.props;
+const { name, backgroundColour, textColour } = Astro.props;
 ---
 
-<div class="tag-pill" style={`background-color: ${background}; border-color: ${border}; color: ${border}`}>
+<div class="tag-pill" style={`background-color: ${backgroundColour ?? "#ddf4ff"}; color: ${textColour ?? "#2d78cf"}`}>
 	<p>{name}</p>
 </div>
 
 <style>
 	.tag-pill {
-    border: 1px solid black;
     border-radius: 100px;
+    padding: 2px 4px;
     width: fit-content;
     text-decoration: none;
   }
   .tag-pill > p {
     font-size: 14px;
     margin: 0 6px;
+    font-weight: 500;
   }
 </style>

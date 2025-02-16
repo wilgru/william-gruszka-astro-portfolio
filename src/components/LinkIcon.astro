@@ -11,9 +11,10 @@ interface Props {
 	href: string;
   iconName: string;
   alt: string;
+  target?: string;
 }
 
-const { href, iconName, alt } = Astro.props;
+const { href, iconName, alt, target } = Astro.props;
 
 let icon: ImageMetadata | undefined
 switch (iconName) {
@@ -49,7 +50,7 @@ switch (iconName) {
     break;
 }
 ---
-<a class="link-icon" target="_blank" href={href} title={alt}>
+<a class="link-icon" target={target} href={href} title={alt}>
   <img src={icon?.src} alt={alt} />
 </a>
 

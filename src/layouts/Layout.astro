@@ -43,13 +43,16 @@ const { title } = Astro.props;
 		background: #ffffff;
 	}
 	body {
-		height: 100vh;
-		margin: 0 15rem;
+		min-height: 100vh;
+		margin: 0;
 		font-size: 20px;
 		display: flex; 
+		justify-content: center; 
 		gap: 2rem;
-		flex-direction: column; 
-		justify-content: space-between; 
+	}
+	main {
+		padding: 3rem;
+		max-width: 1000px;
 	}
 	code {
 		font-family:

@@ -6,7 +6,6 @@ const tagCollection = defineCollection({
   type: "data",
   schema: z.object({
     name: z.string(),
-    colour: z.string(),
     showcase: z.boolean(),
   }),
 });

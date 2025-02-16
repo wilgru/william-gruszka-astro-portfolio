@@ -28,7 +28,7 @@ const { Content } = await project.render();
 <Layout title={`William Gruszka - ${project.data.title}`}>
   <section class="project-content">
     <header>
-      <!-- <a href="/">↩ William Gruszka</a> -->
+      <a href="/">↩ William Gruszka</a>
       {project.data.logo ? <Image src={project.data.logo} alt={`${project.data.title} logo`} height={100}/> : <h1>{project.data.title}</h1>}
 			<ul role="list">
         <li>
@@ -36,7 +36,7 @@ const { Content } = await project.render();
         </li>
 				{tagsies.map(tag => (
 					<li>
-						<Pill name={tag.data.name} background={tag.data.colour} border={'black'} />
+						<Pill name={tag.data.name} />
 					</li>
 				))}
 			</ul>

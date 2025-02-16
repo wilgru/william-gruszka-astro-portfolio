@@ -24,14 +24,15 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 	</header>
 
 	<ul>
-		<li>{project.data.year}</li>
 		{tags.map(tag => (
 			<li>
-				<Pill name={tag.data.name} background={tag.data.colour} border={'black'} />
+				<Pill name={tag.data.name}/>
 			</li>
 		))}
 
-		{project.data.archived && <li><Pill name={"archived"} background={'white'} border={'gray'} /></li>}
+		<li>{project.data.year}</li>
+
+		{project.data.archived && <li><Pill name={"archived"} backgroundColour={'snow'} textColour={'darkgray'} /></li>}
 	</ul>
 	
 	<p>{project.data.description}</p>
@@ -41,7 +42,7 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 		
 		{project.data.links?.map(link => (
 			<li>
-				<LinkIcon href={link.link} iconName={link.icon} alt={link.title}/>
+				<LinkIcon href={link.link} iconName={link.icon} alt={link.title} target="_blank"/>
 			</li>
 		))}
 	</ul>
@@ -51,6 +52,7 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 	.project-card {
 		display: flex;
 		flex-direction: column;
+		height: fit-content;
 		width: 100%;
 		gap: 0.5rem;
 	}
