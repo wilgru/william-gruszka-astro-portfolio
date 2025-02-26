@@ -17,59 +17,78 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 ---
 
 <article class="project-card">
-	<!-- {pathname.includes(href) ? <Image src={project.data.staticImage} alt={`${project.data.title} demo image`}/> : <img alt="yoo"/>} -->
-	<header>
-		<!-- {project.data.logo ? <Image src={project.data.logo} alt={`${project.data.title} logo`} width={250} quality={'max'}/> : <h1>{project.data.title}</h1>} -->
-		{project.data.logo ? <img src={project.data.logo.src} alt={`${project.data.title} logo`} width={250}/> : <h1>{project.data.title}</h1>}
-	</header>
+	<Image src={import.meta.env.BASE_URL + 'test.png'} alt="test" width="948" height="640" />
 
-	<ul>
-		{tags.map(tag => (
-			<li>
-				<Pill name={tag.data.name}/>
-			</li>
-		))}
+	<div class="details">
+		<header>
+			{project.data.logo ? <img src={project.data.logo.src} alt={`${project.data.title} logo`} width={250}/> : <h1>{project.data.title}</h1>}
+		</header>
 
-		{project.data.archived && <li><Pill name={"archived"} backgroundColour={'#ececec'} textColour={'#535353'} /></li>}
+		<div class="description">
+			<p>{project.data.description}</p>
 
-		<li><Pill name={project.data.year} backgroundColour={'#ececec'} textColour={'#535353'} /> </li>
-	</ul>
+			<ul class="tags">
+				{tags.map(tag => (
+					<li>
+						<Pill name={tag.data.name}/>
+					</li>
+				))}
+
+				{project.data.archived && <li><Pill name={"archived"} backgroundColour={'#ececec'} textColour={'#535353'} /></li>}
+
+				<li><Pill name={project.data.year} backgroundColour={'#ececec'} textColour={'#535353'} /> </li>
+
+				{project.body && <li><LinkIcon href={href} iconName={"book-open-text"} alt={`More on ${project.data.title}`}/></li>}
+					
+				{project.data.links?.map(link => (
+					<li>
+						<LinkIcon href={link.link} iconName={link.icon} alt={link.title} target="_blank"/>
+					</li>
+				))}
+			</ul>
+		</div>
+	</div>
 	
-	<p>{project.data.description}</p>
-
-	<ul>
-		{project.body && <li><LinkIcon href={href} iconName={"book-open-text"} alt={`More on ${project.data.title}`}/></li>}
-		
-		{project.data.links?.map(link => (
-			<li>
-				<LinkIcon href={link.link} iconName={link.icon} alt={link.title} target="_blank"/>
-			</li>
-		))}
-	</ul>
 </article>
 
 <style>
 	.project-card {
 		display: flex;
 		flex-direction: column;
-		height: fit-content;
-		width: 100%;
-		gap: 0.5rem;
+		align-items: center;
 	}
-	.project-card header {
+	.details {
+		padding: 1.3rem;
+		border-radius: 1rem;
+		height: 7rem;
+		width: 1000px;
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+	}
+	.details header {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		height: 100px;
+		height: 100%;
 		gap: 1rem;
+		padding-right: 2rem;
+		border-right: solid 2px rgb(220, 220, 220);
 	}
-	.project-card ul {
+	.tags {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		padding: 0;
+		gap: 0.5rem; 
 	}
-	.project-card li {
-		list-style: none;
+	.description {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.description ul {
+		display: flex;
+		flex-direction: row;
+		gap: 0.5rem;
 	}
 </style>

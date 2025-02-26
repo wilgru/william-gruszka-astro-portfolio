@@ -15,17 +15,16 @@ const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.
 			<Image src={import.meta.env.BASE_URL + 'headshot.JPG'} alt="William Gruszka headshot" width="400" height="200" />
 			
 			<div class="description">
-				<h1>William Gruszka</h1>
+				<!-- <h1>William Gruszka</h1> -->
+				<p>
+					Sydney based software engineer with experience in agile development, web development using React and Typescript, and cloud services like AWS. 
+				</p>
+
 				<summary>
-					<h3>Software Engineer</h3>
 					<LinkIcon href={'https://github.com/wilgru'} iconName={"github-logo"} alt="Github icon" target="_blank"/>
 					<LinkIcon href={'https://www.linkedin.com/in/william-gruszka-a03373227/'} iconName={"linkedin-logo"} alt="linkedIn icon" target="_blank"/>
 					<LinkIcon href={'mailto:william.gruszka@icloud.com'} iconName={"envelope"} alt="email icon" target="_blank"/>
 				</summary>
-
-				<p>
-					Full-stack software engineer with experience in agile development, web development using React and Typescript, and cloud services like AWS. 
-				</p>
 			</div>
 
 
@@ -41,26 +40,36 @@ const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.
 		display: flex; 
 		flex-direction: column; 
 		justify-content: space-between;
+		align-items: center;
 		gap: 2rem
 	}
 	.homepage-content header {
-		width: 100%;
+		padding: 1.3rem;
+		border-radius: 1rem;
+		background-color: snow;
+		width: 1000px;
 		display: flex;
 		justify-content: space-between;
-		gap: 1rem; 
+		gap: 2rem; 
+	}
+	.homepage-content header img {
+		border-radius: 0.5rem;
 	}
 	.description {
+		height: 100%;
 		display: flex;
 		flex-direction: column;
-		align-items: end; 
-		gap: 0.5rem;
-		text-align: end;
+		justify-content: space-between;
 	}
 	.description summary {
+		border-top: solid 2px rgb(241, 241, 241);
+		padding-top: 1rem;
 		display: flex; 
 		flex-direction: row;
-		justify-content: end; 
 		align-items: center;
 		gap: 0.5rem; 
+	}
+	.description p {
+		font-size: 1.3rem;
 	}
 </style>

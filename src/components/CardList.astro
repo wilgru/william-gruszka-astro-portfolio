@@ -20,12 +20,11 @@ const { projects } = Astro.props;
 
 <style>
   .project-card-list {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
-		gap: 2rem;
-		margin: 0;
-		height: fit-content;
+		gap: 5rem;
+		width: 100%;
 	}
 	.project-card-list li {
 		list-style: none;
