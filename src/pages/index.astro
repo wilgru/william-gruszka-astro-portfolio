@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import LinkIcon from '../components/LinkIcon.astro';
 import CardList from '../components/CardList.astro';
+import { Image } from 'astro:assets';
 import { getCollection, type CollectionEntry } from 'astro:content';
 
 const projects: CollectionEntry<'projects'>[] = await getCollection('projects');
@@ -11,7 +12,9 @@ const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.
 <Layout title="William Gruszka">
 	<section class="homepage-content">
 		<header>
-			<div>
+			<Image src={import.meta.env.BASE_URL + 'headshot.JPG'} alt="William Gruszka headshot" width="400" height="200" />
+			
+			<div class="description">
 				<h1>William Gruszka</h1>
 				<summary>
 					<h3>Software Engineer</h3>
@@ -19,11 +22,13 @@ const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.
 					<LinkIcon href={'https://www.linkedin.com/in/william-gruszka-a03373227/'} iconName={"linkedin-logo"} alt="linkedIn icon" target="_blank"/>
 					<LinkIcon href={'mailto:william.gruszka@icloud.com'} iconName={"envelope"} alt="email icon" target="_blank"/>
 				</summary>
+
+				<p>
+					Full-stack software engineer with experience in agile development, web development using React and Typescript, and cloud services like AWS. 
+				</p>
 			</div>
 
-			<p>
-				Full-stack software engineer with experience in agile development, specialising in web development using React and Typescript, and cloud services like AWS.
-			</p>
+
 		</header>
 
 		<CardList projects={sortedProjects} transition:persist/>
@@ -39,13 +44,22 @@ const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.
 		gap: 2rem
 	}
 	.homepage-content header {
-		display: flex; 
-		flex-direction: column; 
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
 		gap: 1rem; 
 	}
-	.homepage-content summary {
+	.description {
+		display: flex;
+		flex-direction: column;
+		align-items: end; 
+		gap: 0.5rem;
+		text-align: end;
+	}
+	.description summary {
 		display: flex; 
-		flex-direction: row; 
+		flex-direction: row;
+		justify-content: end; 
 		align-items: center;
 		gap: 0.5rem; 
 	}
