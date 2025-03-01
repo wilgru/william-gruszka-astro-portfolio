@@ -18,12 +18,16 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
 
 <article class="project-card">
   {
-    project.data.preview && (
+    project.data.preview ? (
       <img
         class="preview-image"
         src={project.data.preview?.src}
         alt={`${project.data.title} preview image`}
       />
+    ) : (
+      <div class="preview-image">
+        <h1 class="no-preview-image">No image</h1>
+      </div>
     )
   }
 
@@ -103,6 +107,24 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
   </div>
 </article>
 
+<script>
+  function updatePreviewImageHeight() {
+    const previewImages = document.getElementsByClassName("preview-image");
+
+    if (!previewImages) {
+      return;
+    }
+
+    for (const previewImage of previewImages) {
+      (previewImage as HTMLElement).style.height =
+        `${window.innerHeight - 580}px`;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", updatePreviewImageHeight);
+  window.addEventListener("resize", updatePreviewImageHeight);
+</script>
+
 <style>
   .project-card {
     flex: 1;
@@ -111,15 +133,21 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
   }
   .preview-image {
-    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .no-preview-image {
+    height: fit-content;
+    color: rgb(241, 241, 241);
   }
   .details {
-    min-width: 800px;
+    min-width: 700px;
     height: 7rem;
     display: flex;
     justify-content: start;
@@ -132,7 +160,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     height: 100%;
     gap: 1rem;
     padding-right: 2rem;
-    border-right: solid 2px rgb(220, 220, 220);
+    border-right: solid 2px rgb(241, 241, 241);
   }
   .tags {
     display: flex;
