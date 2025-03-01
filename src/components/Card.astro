@@ -89,7 +89,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
           <Pill name={project.data.year} />
         </li>
 
-        {
+        <!-- {
           project.body && (
             <li>
               <LinkIcon
@@ -99,7 +99,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
               />
             </li>
           )
-        }
+        } -->
 
         {
           project.data.links?.map((link) => (
