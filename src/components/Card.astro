@@ -73,18 +73,6 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
           ))
         }
 
-        {
-          project.data.archived && (
-            <li>
-              <Pill
-                name={"archived"}
-                backgroundColour={"#ececec"}
-                textColour={"#535353"}
-              />
-            </li>
-          )
-        }
-
         <li>
           <Pill name={project.data.year} />
         </li>
