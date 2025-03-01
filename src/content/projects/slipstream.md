@@ -1,15 +1,15 @@
 ---
-title: "SlipBox"
+title: "slipstream"
 logo: "./slipstream-logo.png"
 preview: "./slipstream-img1.png"
 description: "A stream of consciousness note taking web app where you can view your notes in different ways"
 year: "2023"
 links:
   - title: "Live demo"
-    link: "https://slipbox-react-app.fly.dev/"
+    link: "https://slipstream-react-app.fly.dev/"
     icon: "cursor"
   - title: "Source code"
-    link: "https://github.com/wilgru/slipbox-react-app"
+    link: "https://github.com/wilgru/slipstream-react-app"
     icon: "code"
 platforms:
   - Web
