@@ -17,7 +17,7 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 ---
 
 <article class="project-card">
-	<Image src={import.meta.env.BASE_URL + 'test.png'} alt="test" width="948" height="640" />
+	{project.data.preview && <img class="preview-image" src={project.data.preview?.src} alt={`${project.data.title} preview image`}/>}
 
 	<div class="details">
 		<header>
@@ -48,22 +48,28 @@ const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // 
 			</ul>
 		</div>
 	</div>
-	
 </article>
 
 <style>
 	.project-card {
+		flex: 1;
+		background-color: snow;
+		padding: 1rem;
+		border-radius: 1rem;
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		align-items: center;
+		box-sizing: border-box;
+	}
+	.preview-image {
+		width: 100%;
 	}
 	.details {
-		padding: 1.3rem;
-		border-radius: 1rem;
+		min-width: 800px;
 		height: 7rem;
-		width: 1000px;
 		display: flex;
-		justify-content: center;
+		justify-content: start;
 		gap: 2rem;
 	}
 	.details header {

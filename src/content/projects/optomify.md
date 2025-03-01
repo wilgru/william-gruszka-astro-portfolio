@@ -1,6 +1,7 @@
 ---
 title: "Optomify"
 logo: "./optomify-logo.png"
+preview: "./optomify-img.png"
 description: "Tailor made practice management solution built for use in optometry practices"
 year: "2022"
 links:

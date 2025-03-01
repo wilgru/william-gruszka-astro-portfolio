@@ -20,6 +20,11 @@ const projectCollection = defineCollection({
           message: "GRRR image must be at least 600 pixels wide!",
         })
         .optional(),
+      preview: image()
+        .refine((img) => img.width >= 600, {
+          message: "GRRR image must be at least 600 pixels wide!",
+        })
+        .optional(),
       description: z.string(),
       year: z.string(),
       links: z

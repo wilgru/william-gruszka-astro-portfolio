@@ -11,11 +11,11 @@ const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.
 
 <Layout title="William Gruszka">
 	<section class="homepage-content">
-		<header>
+		<h1 style="width: 1000px">William Gruszka</h1>
+		<header class="homepage-header">
 			<Image src={import.meta.env.BASE_URL + 'headshot.JPG'} alt="William Gruszka headshot" width="400" height="200" />
 			
 			<div class="description">
-				<!-- <h1>William Gruszka</h1> -->
 				<p>
 					Sydney based software engineer with experience in agile development, web development using React and Typescript, and cloud services like AWS. 
 				</p>
@@ -30,6 +30,7 @@ const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.
 
 		</header>
 
+		<!-- <h1 style="width: 1000px">Projects</h1> -->
 		<CardList projects={sortedProjects} transition:persist/>
 	</section>
 </Layout>
@@ -41,18 +42,20 @@ const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.
 		flex-direction: column; 
 		justify-content: space-between;
 		align-items: center;
-		gap: 2rem
+		gap: 2rem;
+		padding: 2rem 0 0 0;
+		box-sizing: border-box;
 	}
-	.homepage-content header {
+	.homepage-header {
 		padding: 1.3rem;
 		border-radius: 1rem;
 		background-color: snow;
-		width: 1000px;
+		max-width: 1000px;
 		display: flex;
 		justify-content: space-between;
 		gap: 2rem; 
 	}
-	.homepage-content header img {
+	.homepage-header img {
 		border-radius: 0.5rem;
 	}
 	.description {

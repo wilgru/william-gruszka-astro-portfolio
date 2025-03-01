@@ -20,11 +20,14 @@ const { projects } = Astro.props;
 
 <style>
   .project-card-list {
+		flex: 1;
 		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		gap: 5rem;
+		gap: 2rem;
 		width: 100%;
+		overflow-y: auto;
+		padding: 0 calc(((100vw - 1000px) / 2) - 20px);
+		padding-bottom: 2rem;
+		box-sizing: border-box;
 	}
 	.project-card-list li {
 		list-style: none;
