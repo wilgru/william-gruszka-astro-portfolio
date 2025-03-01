@@ -27,6 +27,7 @@ const projectCollection = defineCollection({
         .optional(),
       description: z.string(),
       year: z.string(),
+      platforms: z.array(z.string()),
       links: z
         .array(
           z.object({

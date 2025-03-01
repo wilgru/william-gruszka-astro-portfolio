@@ -8,8 +8,10 @@ links:
   - title: "Play Sprout"
     link: "https://www.lexaloffle.com/bbs/?tid=44692"
     icon: "game-controller"
+platforms:
+  - PICO-8
+  - Web
 tags:
-  - pico8
   - lua
 ---
 

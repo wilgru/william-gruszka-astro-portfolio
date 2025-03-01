@@ -11,6 +11,8 @@ links:
   - title: "Source code"
     link: "https://github.com/wilgru/optomify"
     icon: "code"
+platforms:
+  - Web
 tags:
   - react
   - javascript

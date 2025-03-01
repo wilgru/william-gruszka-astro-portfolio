@@ -49,11 +49,26 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     <div class="description">
       <p>{project.data.description}</p>
 
-      <ul class="tags">
+      <ul class="info-pills">
+        {
+          project.data.platforms.map((platform) => (
+            <li>
+              <Pill
+                name={platform}
+                backgroundColour="#ddf4ff"
+                textColour="#2d78cf"
+              />
+            </li>
+          ))
+        }
         {
           tags.map((tag) => (
             <li>
-              <Pill name={tag.data.name} />
+              <Pill
+                name={tag.data.name}
+                backgroundColour={"#ececec"}
+                textColour={"#535353"}
+              />
             </li>
           ))
         }
@@ -71,11 +86,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
         }
 
         <li>
-          <Pill
-            name={project.data.year}
-            backgroundColour={"#ececec"}
-            textColour={"#535353"}
-          />
+          <Pill name={project.data.year} />
         </li>
 
         {
@@ -162,7 +173,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     padding-right: 2rem;
     border-right: solid 2px rgb(241, 241, 241);
   }
-  .tags {
+  .info-pills {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

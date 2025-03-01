@@ -1,21 +1,24 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
-  name: string
-  backgroundColour?: string
-  textColour?: string
+  name: string;
+  backgroundColour?: string;
+  textColour?: string;
 }
 
 const { name, backgroundColour, textColour } = Astro.props;
 ---
 
-<div class="tag-pill" style={`background-color: ${backgroundColour ?? "#ddf4ff"}; color: ${textColour ?? "#2d78cf"}`}>
-	<p>{name}</p>
+<div
+  class="tag-pill"
+  style={`background-color: ${backgroundColour ?? "snow"}; color: ${textColour ?? "#535353"}`}
+>
+  <p>{name}</p>
 </div>
 
 <style>
-	.tag-pill {
+  .tag-pill {
     border-radius: 100px;
     padding: 2px 4px;
     width: fit-content;

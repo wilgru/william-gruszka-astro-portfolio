@@ -10,6 +10,8 @@ links:
   - title: "Source code"
     link: "https://github.com/wilgru/slipbox-react-app"
     icon: "code"
+platforms:
+  - Web
 tags:
   - react
   - typescript

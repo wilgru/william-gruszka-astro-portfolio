@@ -3,7 +3,9 @@ title: "Itunalyzer"
 logo: "./itunalyzer-logo.png"
 description: "CLI program for analyzing your iTunes library"
 year: "2021"
-# author: ben-holmes # references `src/content/authors/ben-holmes.json`
+# author: ben-holmes # references `src/content/authors/ben-holmes.json
+platforms:
+  - Terminal
 tags:
   - python # references `src/content/blog/python.json`
   - pandas

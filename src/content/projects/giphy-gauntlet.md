@@ -3,6 +3,8 @@ title: "Giphy Gauntlet"
 logo: "./giphy-gauntlet-logo.png"
 description: "High scoring, word guessing game using GIFs"
 year: "2022"
+platforms:
+  - Web
 links:
   - title: "Play Giphy Gauntlet"
     link: ""
