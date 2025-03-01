@@ -1,15 +1,12 @@
 ---
 import { getEntries, type CollectionEntry } from "astro:content";
 import Pill from "./Pill.astro";
-import { Image } from "astro:assets";
 import LinkIcon from "./LinkIcon.astro";
 
 interface Props {
   href: string;
   project: CollectionEntry<"projects">;
 }
-
-// const pathname = new URL(Astro.request.url).pathname
 
 const { href, project } = Astro.props;
 
@@ -158,7 +155,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     justify-content: center;
     height: 100%;
     gap: 1rem;
-    padding-right: 2rem;
+    padding-right: 1rem;
     border-right: solid 2px rgb(241, 241, 241);
   }
   .info-pills {
