@@ -1,7 +1,6 @@
 ---
 title: "Giphy Gauntlet"
 logo: "./giphy-gauntlet-logo.png"
-description: "High scoring, word guessing game using GIFs"
 year: "2022"
 platforms:
   - Web
@@ -17,3 +16,5 @@ tags:
   - css
   - javascript
 ---
+
+High scoring, word guessing game using GIFs

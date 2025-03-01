@@ -25,7 +25,6 @@ const projectCollection = defineCollection({
           message: "GRRR image must be at least 200 pixels wide!",
         })
         .optional(),
-      description: z.string(),
       year: z.string(),
       platforms: z.array(z.string()),
       links: z

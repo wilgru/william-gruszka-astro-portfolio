@@ -2,7 +2,6 @@
 title: "Optomify"
 logo: "./optomify-logo.png"
 preview: "./optomify-img1.png"
-description: "Tailor made practice management solution built for use in optometry practices"
 year: "2022"
 links:
   # - title: "Live demo"
@@ -19,3 +18,5 @@ tags:
   - graphql
   - mongodb
 ---
+
+Tailor made practice management solution built for use in optometry practices
