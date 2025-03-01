@@ -113,16 +113,40 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
 
     for (const previewImage of previewImages) {
       (previewImage as HTMLElement).style.height =
-        `${window.innerHeight - 580}px`;
+        `${window.innerHeight - 585}px`;
     }
   }
 
+  function updateCardVisibility() {
+    const projectCards = document.getElementsByClassName("project-card");
+
+    if (!projectCards) {
+      return;
+    }
+
+    for (const card of projectCards) {
+      const rect = card.getBoundingClientRect();
+      const inView = rect.left >= 0 && rect.right <= window.innerWidth;
+
+      console.log(rect.left, rect.right, window.innerWidth);
+
+      (card as HTMLElement).style.opacity = inView ? "1" : "0.45";
+    }
+  }
+
+  const cardList = document.getElementById("project-card-list");
+  cardList?.addEventListener("scroll", updateCardVisibility);
+
   document.addEventListener("DOMContentLoaded", updatePreviewImageHeight);
+  document.addEventListener("DOMContentLoaded", updateCardVisibility);
+
   window.addEventListener("resize", updatePreviewImageHeight);
+  window.addEventListener("resize", updateCardVisibility);
 </script>
 
 <style>
   .project-card {
+    transition: opacity 0.3s;
     flex: 1;
     background-color: snow;
     padding: 1rem;
@@ -144,7 +168,6 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
   }
   .details {
     min-width: 700px;
-    height: 7rem;
     display: flex;
     justify-content: start;
     gap: 2rem;

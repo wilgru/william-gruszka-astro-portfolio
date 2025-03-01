@@ -1,14 +1,14 @@
 ---
-import githubSvg from '../../public/github-logo-fill.svg';
-import linkedinSvg from '../../public/linkedin-logo-fill.svg';
-import envelopeSvg from '../../public/envelope-fill.svg';
-import bookOpenTextSvg from '../../public/book-open-text.svg';
-import gameControllerSvg from '../../public/game-controller.svg';
-import codeSvg from '../../public/code.svg';
-import cursorSvg from '../../public/cursor.svg';
+import githubSvg from "../../public/github-logo-fill.svg";
+import linkedinSvg from "../../public/linkedin-logo-fill.svg";
+import envelopeSvg from "../../public/envelope.svg";
+import bookOpenTextSvg from "../../public/book-open-text.svg";
+import gameControllerSvg from "../../public/game-controller.svg";
+import codeSvg from "../../public/code.svg";
+import cursorSvg from "../../public/cursor.svg";
 
 interface Props {
-	href: string;
+  href: string;
   iconName: string;
   alt: string;
   target?: string;
@@ -16,55 +16,58 @@ interface Props {
 
 const { href, iconName, alt, target } = Astro.props;
 
-let icon: ImageMetadata | undefined
+let icon: ImageMetadata | undefined;
 switch (iconName) {
   case "github-logo":
-    icon = githubSvg
+    icon = githubSvg;
     break;
 
   case "linkedin-logo":
-    icon = linkedinSvg
+    icon = linkedinSvg;
     break;
 
   case "envelope":
-    icon = envelopeSvg
+    icon = envelopeSvg;
     break;
 
   case "book-open-text":
-    icon = bookOpenTextSvg
+    icon = bookOpenTextSvg;
     break;
 
   case "game-controller":
-    icon = gameControllerSvg
+    icon = gameControllerSvg;
     break;
 
   case "code":
-    icon = codeSvg
+    icon = codeSvg;
     break;
 
   case "cursor":
-    icon = cursorSvg
+    icon = cursorSvg;
     break;
 
   default:
     break;
 }
 ---
+
 <a class="link-icon" target={target} href={href} title={alt}>
   <img src={icon?.src} alt={alt} />
 </a>
 
 <style>
-	.link-icon {
+  .link-icon {
     width: 22px;
-		height: 22px;
+    height: 22px;
+    transition: opacity 0.3s;
     opacity: 0.7;
   }
   .link-icon:hover {
+    transition: opacity 0.3s;
     opacity: 1;
   }
   .link-icon img {
     width: 22px;
-		height: 22px;
+    height: 22px;
   }
 </style>
