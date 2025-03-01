@@ -1,6 +1,7 @@
 ---
 title: "SlipBox"
-logo: "./slipbox-logo.png"
+logo: "./slipstream-logo.png"
+preview: "./slipstream-img1.png"
 description: "A stream of consciousness note taking web app where you can view your notes in different ways"
 year: "2023"
 links:

@@ -16,13 +16,13 @@ const projectCollection = defineCollection({
     z.object({
       title: z.string(),
       logo: image()
-        .refine((img) => img.width >= 600, {
-          message: "GRRR image must be at least 600 pixels wide!",
+        .refine((img) => img.width >= 200, {
+          message: "GRRR image must be at least 200 pixels wide!",
         })
         .optional(),
       preview: image()
-        .refine((img) => img.width >= 600, {
-          message: "GRRR image must be at least 600 pixels wide!",
+        .refine((img) => img.width >= 200, {
+          message: "GRRR image must be at least 200 pixels wide!",
         })
         .optional(),
       description: z.string(),
