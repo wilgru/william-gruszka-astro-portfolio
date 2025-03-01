@@ -14,4 +14,4 @@ tags:
   - lua
 ---
 
-8-bit style, 2 player competitive strategy game
+8-bit style, 2 player competitive strategy game where each player takes turns to grow their vines into the other players territory

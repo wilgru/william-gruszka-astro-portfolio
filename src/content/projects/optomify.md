@@ -19,4 +19,4 @@ tags:
   - mongodb
 ---
 
-Tailor made practice management solution built for use in optometry practices
+Practice management solution specifically built for optometry practices. Manage bookings, patients and prescriptions all in one app, with an easy to use UI

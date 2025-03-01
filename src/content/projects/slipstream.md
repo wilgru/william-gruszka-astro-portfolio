@@ -18,4 +18,4 @@ tags:
   - pocketbase
 ---
 
-SlipStream is a stream of consciousness note taking app where you can view your notes in different ways.
+Note taking app where users write notes in a stream of consciousness that is then compiled into document-like views with a table of contents.

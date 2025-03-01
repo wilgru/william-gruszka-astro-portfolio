@@ -17,4 +17,4 @@ tags:
   - javascript
 ---
 
-High scoring, word guessing game using GIFs
+Web game where the player has to guess as many words based on the GIFs shown within a given timeframe. Includes customisation options and player stats.
