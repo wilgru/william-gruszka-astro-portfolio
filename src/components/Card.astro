@@ -1,100 +1,153 @@
 ---
-import { getEntries, type CollectionEntry } from 'astro:content';
-import Pill from './Pill.astro';
-import { Image } from 'astro:assets';
-import LinkIcon from './LinkIcon.astro';
+import { getEntries, type CollectionEntry } from "astro:content";
+import Pill from "./Pill.astro";
+import { Image } from "astro:assets";
+import LinkIcon from "./LinkIcon.astro";
 
 interface Props {
-	href: string;
-	project: CollectionEntry<'projects'>;
+  href: string;
+  project: CollectionEntry<"projects">;
 }
 
 // const pathname = new URL(Astro.request.url).pathname
 
 const { href, project } = Astro.props;
 
-const tags: CollectionEntry<'tags'>[] = await getEntries(project.data.tags); // Resolve an array of references
+const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // Resolve an array of references
 ---
 
 <article class="project-card">
-	{project.data.preview && <img class="preview-image" src={project.data.preview?.src} alt={`${project.data.title} preview image`}/>}
+  {
+    project.data.preview && (
+      <img
+        class="preview-image"
+        src={project.data.preview?.src}
+        alt={`${project.data.title} preview image`}
+      />
+    )
+  }
 
-	<div class="details">
-		<header>
-			{project.data.logo ? <img src={project.data.logo.src} alt={`${project.data.title} logo`} width={250}/> : <h1>{project.data.title}</h1>}
-		</header>
+  <div class="details">
+    <header>
+      {
+        project.data.logo ? (
+          <img
+            src={project.data.logo.src}
+            alt={`${project.data.title} logo`}
+            width={250}
+          />
+        ) : (
+          <h1>{project.data.title}</h1>
+        )
+      }
+    </header>
 
-		<div class="description">
-			<p>{project.data.description}</p>
+    <div class="description">
+      <p>{project.data.description}</p>
 
-			<ul class="tags">
-				{tags.map(tag => (
-					<li>
-						<Pill name={tag.data.name}/>
-					</li>
-				))}
+      <ul class="tags">
+        {
+          tags.map((tag) => (
+            <li>
+              <Pill name={tag.data.name} />
+            </li>
+          ))
+        }
 
-				{project.data.archived && <li><Pill name={"archived"} backgroundColour={'#ececec'} textColour={'#535353'} /></li>}
+        {
+          project.data.archived && (
+            <li>
+              <Pill
+                name={"archived"}
+                backgroundColour={"#ececec"}
+                textColour={"#535353"}
+              />
+            </li>
+          )
+        }
 
-				<li><Pill name={project.data.year} backgroundColour={'#ececec'} textColour={'#535353'} /> </li>
+        <li>
+          <Pill
+            name={project.data.year}
+            backgroundColour={"#ececec"}
+            textColour={"#535353"}
+          />
+        </li>
 
-				{project.body && <li><LinkIcon href={href} iconName={"book-open-text"} alt={`More on ${project.data.title}`}/></li>}
-					
-				{project.data.links?.map(link => (
-					<li>
-						<LinkIcon href={link.link} iconName={link.icon} alt={link.title} target="_blank"/>
-					</li>
-				))}
-			</ul>
-		</div>
-	</div>
+        {
+          project.body && (
+            <li>
+              <LinkIcon
+                href={href}
+                iconName={"book-open-text"}
+                alt={`More on ${project.data.title}`}
+              />
+            </li>
+          )
+        }
+
+        {
+          project.data.links?.map((link) => (
+            <li>
+              <LinkIcon
+                href={link.link}
+                iconName={link.icon}
+                alt={link.title}
+                target="_blank"
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </article>
 
 <style>
-	.project-card {
-		flex: 1;
-		background-color: snow;
-		padding: 1rem;
-		border-radius: 1rem;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		align-items: center;
-		box-sizing: border-box;
-	}
-	.preview-image {
-		width: 100%;
-	}
-	.details {
-		min-width: 800px;
-		height: 7rem;
-		display: flex;
-		justify-content: start;
-		gap: 2rem;
-	}
-	.details header {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		height: 100%;
-		gap: 1rem;
-		padding-right: 2rem;
-		border-right: solid 2px rgb(220, 220, 220);
-	}
-	.tags {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 0.5rem; 
-	}
-	.description {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-	.description ul {
-		display: flex;
-		flex-direction: row;
-		gap: 0.5rem;
-	}
+  .project-card {
+    flex: 1;
+    background-color: snow;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  .preview-image {
+    width: 100%;
+  }
+  .details {
+    min-width: 800px;
+    height: 7rem;
+    display: flex;
+    justify-content: start;
+    gap: 2rem;
+  }
+  .details header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    gap: 1rem;
+    padding-right: 2rem;
+    border-right: solid 2px rgb(220, 220, 220);
+  }
+  .tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .description {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .description ul {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
 </style>

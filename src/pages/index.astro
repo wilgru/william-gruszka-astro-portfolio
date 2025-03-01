@@ -1,78 +1,100 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import LinkIcon from '../components/LinkIcon.astro';
-import CardList from '../components/CardList.astro';
-import { Image } from 'astro:assets';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import LinkIcon from "../components/LinkIcon.astro";
+import CardList from "../components/CardList.astro";
+import { Image } from "astro:assets";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-const projects: CollectionEntry<'projects'>[] = await getCollection('projects');
-const sortedProjects: CollectionEntry<'projects'>[] = projects.sort((a, b) => a.data.year < b.data.year ? 1 : -1)
+const projects: CollectionEntry<"projects">[] = await getCollection("projects");
+const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
+  a.data.year < b.data.year ? 1 : -1
+);
 ---
 
 <Layout title="William Gruszka">
-	<section class="homepage-content">
-		<h1 style="width: 1000px">William Gruszka</h1>
-		<header class="homepage-header">
-			<Image src={import.meta.env.BASE_URL + 'headshot.JPG'} alt="William Gruszka headshot" width="400" height="200" />
-			
-			<div class="description">
-				<p>
-					Sydney based software engineer with experience in agile development, web development using React and Typescript, and cloud services like AWS. 
-				</p>
+  <section class="homepage-content">
+    <h1 style="width: 1000px">William Gruszka</h1>
+    <header class="homepage-header">
+      <Image
+        src={import.meta.env.BASE_URL + "headshot.JPG"}
+        alt="William Gruszka headshot"
+        width="400"
+        height="200"
+      />
 
-				<summary>
-					<LinkIcon href={'https://github.com/wilgru'} iconName={"github-logo"} alt="Github icon" target="_blank"/>
-					<LinkIcon href={'https://www.linkedin.com/in/william-gruszka-a03373227/'} iconName={"linkedin-logo"} alt="linkedIn icon" target="_blank"/>
-					<LinkIcon href={'mailto:william.gruszka@icloud.com'} iconName={"envelope"} alt="email icon" target="_blank"/>
-				</summary>
-			</div>
+      <div class="description">
+        <p>
+          Sydney based software engineer with experience in agile development,
+          web development using React and Typescript, and cloud services like
+          AWS.
+        </p>
 
+        <summary>
+          <LinkIcon
+            href={"https://github.com/wilgru"}
+            iconName={"github-logo"}
+            alt="Github icon"
+            target="_blank"
+          />
+          <LinkIcon
+            href={"https://www.linkedin.com/in/william-gruszka-a03373227/"}
+            iconName={"linkedin-logo"}
+            alt="linkedIn icon"
+            target="_blank"
+          />
+          <LinkIcon
+            href={"mailto:william.gruszka@icloud.com"}
+            iconName={"envelope"}
+            alt="email icon"
+            target="_blank"
+          />
+        </summary>
+      </div>
+    </header>
 
-		</header>
-
-		<!-- <h1 style="width: 1000px">Projects</h1> -->
-		<CardList projects={sortedProjects} transition:persist/>
-	</section>
+    <!-- <h1 style="width: 1000px">Projects</h1> -->
+    <CardList projects={sortedProjects} transition:persist />
+  </section>
 </Layout>
 
 <style>
-	.homepage-content {
-		height: 100%;
-		display: flex; 
-		flex-direction: column; 
-		justify-content: space-between;
-		align-items: center;
-		gap: 2rem;
-		padding: 2rem 0 0 0;
-		box-sizing: border-box;
-	}
-	.homepage-header {
-		padding: 1.3rem;
-		border-radius: 1rem;
-		background-color: snow;
-		max-width: 1000px;
-		display: flex;
-		justify-content: space-between;
-		gap: 2rem; 
-	}
-	.homepage-header img {
-		border-radius: 0.5rem;
-	}
-	.description {
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-	.description summary {
-		border-top: solid 2px rgb(241, 241, 241);
-		padding-top: 1rem;
-		display: flex; 
-		flex-direction: row;
-		align-items: center;
-		gap: 0.5rem; 
-	}
-	.description p {
-		font-size: 1.3rem;
-	}
+  .homepage-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0 0 0;
+    box-sizing: border-box;
+  }
+  .homepage-header {
+    padding: 1.3rem;
+    border-radius: 1rem;
+    background-color: snow;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .homepage-header img {
+    border-radius: 0.5rem;
+  }
+  .description {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .description summary {
+    border-top: solid 2px rgb(241, 241, 241);
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .description p {
+    font-size: 1.3rem;
+  }
 </style>

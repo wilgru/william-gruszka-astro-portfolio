@@ -33,7 +33,7 @@ const projectCollection = defineCollection({
             title: z.string(),
             link: z.string(),
             icon: z.string(),
-          })
+          }),
         )
         .optional(),
       tags: z.array(reference("tags")),
