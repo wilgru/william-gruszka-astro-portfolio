@@ -80,12 +80,16 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
     gap: 1rem;
   }
   .title-container {
+    opacity: 0;
+    animation: fadeInFromBottom 1s ease-out forwards 0.1s;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
   }
   .description-container {
+    opacity: 0;
+    animation: fadeInFromBottom 1s ease-out forwards 0.3s;
     padding: 1.3rem;
     border-radius: 1rem;
     background-color: snow;
