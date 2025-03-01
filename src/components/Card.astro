@@ -13,7 +13,7 @@ const { href, project } = Astro.props;
 const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // Resolve an array of references
 ---
 
-<article class="project-card">
+<article class="card">
   {
     project.data.preview ? (
       <img
@@ -118,7 +118,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
   }
 
   function updateCardVisibility() {
-    const projectCards = document.getElementsByClassName("project-card");
+    const projectCards = document.getElementsByClassName("card");
 
     if (!projectCards) {
       return;
@@ -134,7 +134,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     }
   }
 
-  const cardList = document.getElementById("project-card-list");
+  const cardList = document.getElementById("card-list");
   cardList?.addEventListener("scroll", updateCardVisibility);
 
   document.addEventListener("DOMContentLoaded", updatePreviewImageHeight);
@@ -145,7 +145,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
 </script>
 
 <style>
-  .project-card {
+  .card {
     transition: opacity 0.3s;
     flex: 1;
     background-color: snow;

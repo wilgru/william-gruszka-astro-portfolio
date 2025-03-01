@@ -9,7 +9,7 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<section id="project-card-list">
+<section id="card-list">
   {
     projects.map((project) => (
       <Card href={`/projects/${project.slug}`} project={project} />
@@ -18,7 +18,7 @@ const { projects } = Astro.props;
 </section>
 
 <style>
-  #project-card-list {
+  #card-list {
     opacity: 0;
     animation: fadeInFromBottom 1s ease-out forwards 0.5s;
     flex: 1;
@@ -30,7 +30,7 @@ const { projects } = Astro.props;
     padding-bottom: 2rem;
     box-sizing: border-box;
   }
-  #project-card-list li {
+  #card-list li {
     list-style: none;
   }
 </style>
