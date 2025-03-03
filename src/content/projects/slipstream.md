@@ -18,4 +18,4 @@ tags:
   - pocketbase
 ---
 
-Note taking app where users write notes in a stream of consciousness that is then compiled into document-like views with a table of contents.
+Note taking app where users write notes in a stream of consciousness that is then compiled into document-like views with a table of contents

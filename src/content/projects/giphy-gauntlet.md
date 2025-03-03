@@ -5,9 +5,6 @@ year: "2022"
 platforms:
   - Web
 links:
-  - title: "Play Giphy Gauntlet"
-    link: ""
-    icon: "game-controller"
   - title: "Source code"
     link: "https://github.com/wilgru/giphy-gauntlet"
     icon: "code"
@@ -17,4 +14,4 @@ tags:
   - javascript
 ---
 
-Web game where the player has to guess as many words based on the GIFs shown within a given timeframe. Includes customisation options and player stats.
+Web game where the player has to guess as many words based on the GIFs shown within a given timeframe. Includes customisation options and player stats
