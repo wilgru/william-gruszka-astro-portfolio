@@ -11,31 +11,31 @@ const { href, iconName, alt, target } = Astro.props;
 let iconPath = "";
 switch (iconName) {
   case "github-logo":
-    iconPath = "/github-logo-fill.svg";
+    iconPath = `${import.meta.env.BASE_URL}/github-logo-fill.svg`;
     break;
 
   case "linkedin-logo":
-    iconPath = "/linkedin-logo-fill.svg";
+    iconPath = `${import.meta.env.BASE_URL}/linkedin-logo-fill.svg`;
     break;
 
   case "envelope":
-    iconPath = "/envelope.svg";
+    iconPath = `${import.meta.env.BASE_URL}/envelope.svg`;
     break;
 
   case "book-open-text":
-    iconPath = "/book-open-text.svg";
+    iconPath = `${import.meta.env.BASE_URL}/book-open-text.svg`;
     break;
 
   case "game-controller":
-    iconPath = "/game-controller.svg";
+    iconPath = `${import.meta.env.BASE_URL}/game-controller.svg`;
     break;
 
   case "code":
-    iconPath = "/code.svg";
+    iconPath = `${import.meta.env.BASE_URL}/code.svg`;
     break;
 
   case "cursor":
-    iconPath = "/cursor.svg";
+    iconPath = `${import.meta.env.BASE_URL}/cursor.svg`;
     break;
 
   default:
