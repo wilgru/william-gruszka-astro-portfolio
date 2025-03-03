@@ -1,7 +1,7 @@
 ---
 title: "slipstream"
-logo: "./slipstream-logo.png"
-preview: "./slipstream-img1.png"
+logo: "slipstream-logo.png"
+preview: "slipstream-img1.png"
 year: "2023"
 links:
   - title: "Live demo"
