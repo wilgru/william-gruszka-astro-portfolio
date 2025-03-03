@@ -3,5 +3,5 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://wilgru.github.io',
+  site: 'https://wilgru.github.io/william-gruszka-astro-portfolio/',
 });
