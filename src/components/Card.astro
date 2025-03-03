@@ -128,8 +128,6 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
       const rect = card.getBoundingClientRect();
       const inView = rect.left >= 0 && rect.right <= window.innerWidth;
 
-      console.log(rect.left, rect.right, window.innerWidth);
-
       (card as HTMLElement).style.opacity = inView ? "1" : "0.45";
     }
   }
