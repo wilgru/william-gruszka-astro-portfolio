@@ -1,7 +1,7 @@
 ---
 title: "Sprout"
-logo: "sprout-logo.png"
-preview: "sprout-img1.png"
+logo: "./sprout-logo.png"
+preview: "./sprout-img1.png"
 year: "2021"
 links:
   - title: "Play Sprout"

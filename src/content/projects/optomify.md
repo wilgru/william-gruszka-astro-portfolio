@@ -1,7 +1,7 @@
 ---
 title: "Optomify"
-logo: "optomify-logo.png"
-preview: "optomify-img1.png"
+logo: "./optomify-logo.png"
+preview: "./optomify-img1.png"
 year: "2022"
 links:
   # - title: "Live demo"

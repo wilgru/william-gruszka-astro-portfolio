@@ -18,7 +18,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     project.data.preview ? (
       <img
         class="preview-image"
-        src={`${import.meta.env.BASE_URL}/${project.data.preview?.src}`}
+        src={project.data.preview?.src}
         alt={`${project.data.title} preview image`}
       />
     ) : (
