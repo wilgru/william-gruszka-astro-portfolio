@@ -1,12 +1,4 @@
 ---
-import githubSvg from "../../public/github-logo-fill.svg";
-import linkedinSvg from "../../public/linkedin-logo-fill.svg";
-import envelopeSvg from "../../public/envelope.svg";
-import bookOpenTextSvg from "../../public/book-open-text.svg";
-import gameControllerSvg from "../../public/game-controller.svg";
-import codeSvg from "../../public/code.svg";
-import cursorSvg from "../../public/cursor.svg";
-
 interface Props {
   href: string;
   iconName: string;
@@ -16,34 +8,34 @@ interface Props {
 
 const { href, iconName, alt, target } = Astro.props;
 
-let icon: ImageMetadata | undefined;
+let iconPath = "";
 switch (iconName) {
   case "github-logo":
-    icon = githubSvg;
+    iconPath = "/github-logo-fill.svg";
     break;
 
   case "linkedin-logo":
-    icon = linkedinSvg;
+    iconPath = "/linkedin-logo-fill.svg";
     break;
 
   case "envelope":
-    icon = envelopeSvg;
+    iconPath = "/envelope.svg";
     break;
 
   case "book-open-text":
-    icon = bookOpenTextSvg;
+    iconPath = "/book-open-text.svg";
     break;
 
   case "game-controller":
-    icon = gameControllerSvg;
+    iconPath = "/game-controller.svg";
     break;
 
   case "code":
-    icon = codeSvg;
+    iconPath = "/code.svg";
     break;
 
   case "cursor":
-    icon = cursorSvg;
+    iconPath = "/cursor.svg";
     break;
 
   default:
@@ -52,7 +44,7 @@ switch (iconName) {
 ---
 
 <a class="link-icon" target={target} href={href} title={alt}>
-  <img src={icon?.src} alt={alt} />
+  <img src={iconPath} alt={alt} />
 </a>
 
 <style>
