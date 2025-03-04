@@ -1,6 +1,7 @@
 ---
 title: "Giphy Gauntlet"
 logo: "./giphy-gauntlet-logo.png"
+preview: "./giphy-gauntlet-img1.png"
 year: "2022"
 platforms:
   - Web
