@@ -195,4 +195,15 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     flex-direction: row;
     gap: 0.5rem;
   }
+  @media screen and (max-width: 844px) {
+    .details {
+      min-width: 100%;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .details header {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
 </style>

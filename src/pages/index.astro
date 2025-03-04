@@ -74,10 +74,11 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
     box-sizing: border-box;
   }
   .heading-container {
-    width: 1000px;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin: 0 1rem;
   }
   .title-container {
     opacity: 0;
@@ -117,5 +118,29 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
   }
   .description p {
     font-size: 1.3rem;
+  }
+  @media screen and (max-width: 844px) {
+    .homepage-content {
+      padding: 2rem 1rem;
+    }
+    .heading-container {
+      width: 100%;
+      margin: 0 1rem;
+    }
+    .title-container {
+      flex-direction: column;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .description-container {
+      flex-direction: column;
+    }
+    .description-container img {
+      /* width: 400px; */
+      /* height: 200px; */
+    }
+    .description {
+      gap: 1rem;
+    }
   }
 </style>
