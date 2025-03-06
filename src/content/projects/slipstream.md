@@ -5,7 +5,7 @@ preview: "./slipstream-img1.png"
 year: "2023"
 links:
   - title: "Live demo"
-    link: "https://slipstream-react-app.fly.dev/"
+    link: "https://slipstream-react-app.fly.dev/stream"
     icon: "cursor"
   - title: "Source code"
     link: "https://github.com/wilgru/slipstream-react-app"
