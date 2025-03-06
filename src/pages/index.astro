@@ -19,11 +19,9 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
         <h2>Software Engineer</h2>
       </section>
       <section class="description-container">
-        <Image
+        <img
           src={`${import.meta.env.BASE_URL}/headshot.JPG`}
           alt="William Gruszka headshot"
-          width="400"
-          height="200"
         />
 
         <div class="description">
@@ -101,6 +99,8 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
   }
   .description-container img {
     border-radius: 0.5rem;
+    width: 300px;
+    height: auto;
   }
   .description {
     height: 100%;
@@ -136,8 +136,9 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
       flex-direction: column;
     }
     .description-container img {
-      /* width: 400px; */
-      /* height: 200px; */
+      width: unset;
+      height: unset;
+      max-width: 400px;
     }
     .description {
       gap: 1rem;
