@@ -23,6 +23,7 @@ const { projects } = Astro.props;
     animation: fadeInFromBottom 1s ease-out forwards 0.5s;
     flex: 1;
     display: flex;
+    flex-direction: column;
     gap: 2rem;
     width: 100%;
     overflow-y: auto;
@@ -41,7 +42,6 @@ const { projects } = Astro.props;
   }
   @media screen and (max-width: 844px) {
     #card-list {
-      flex-direction: column;
       padding: 0;
     }
   }
