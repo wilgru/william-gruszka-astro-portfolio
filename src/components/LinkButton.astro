@@ -1,42 +1,51 @@
 ---
-import gameControllerSvg from '../../public/game-controller.svg';
-import codeSvg from '../../public/code.svg';
-import cursorSvg from '../../public/cursor.svg';
-
 interface Props {
   title: string;
-	href: string;
+  href: string;
   iconName: string;
   alt: string;
 }
 
 const { title, href, iconName, alt } = Astro.props;
 
-let icon: ImageMetadata | undefined
+let iconPath = "";
 switch (iconName) {
-  case "game-controller":
-    icon = gameControllerSvg
+  case "github-logo":
+    iconPath = `${import.meta.env.BASE_URL}/github-logo-fill.svg`;
     break;
 
-  case "code":
-    icon = codeSvg
+  case "linkedin-logo":
+    iconPath = `${import.meta.env.BASE_URL}/linkedin-logo-fill.svg`;
+    break;
+
+  case "envelope":
+    iconPath = `${import.meta.env.BASE_URL}/envelope.svg`;
+    break;
+
+  case "book-open-text":
+    iconPath = `${import.meta.env.BASE_URL}/book-open-text.svg`;
+    break;
+
+  case "game-controller":
+    iconPath = `${import.meta.env.BASE_URL}/game-controller.svg`;
     break;
 
   case "cursor":
-    icon = cursorSvg
+    iconPath = `${import.meta.env.BASE_URL}/cursor.svg`;
     break;
 
   default:
     break;
 }
 ---
+
 <a class="link-button" target="_blank" href={href}>
-  <img src={icon?.src} alt={alt} />
+  <img src={iconPath} alt={alt} />
   <p>{title}</p>
 </a>
 
 <style>
-	.link-button {
+  .link-button {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -48,6 +57,6 @@ switch (iconName) {
   }
   .link-button img {
     width: 22px;
-		height: 22px;
+    height: 22px;
   }
 </style>
