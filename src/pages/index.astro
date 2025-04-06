@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import LinkIcon from "../components/LinkIcon.astro";
 import CardList from "../components/CardList.astro";
-import { Image } from "astro:assets";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 const projects: CollectionEntry<"projects">[] = await getCollection("projects");
