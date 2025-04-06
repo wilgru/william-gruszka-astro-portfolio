@@ -9,7 +9,7 @@ links:
   #   icon: "cursor"
   - title: "Source code"
     link: "https://github.com/wilgru/optomify"
-    icon: "code"
+    icon: "github-logo"
 platforms:
   - Web
 tags:

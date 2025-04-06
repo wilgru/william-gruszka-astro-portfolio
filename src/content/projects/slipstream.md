@@ -9,7 +9,7 @@ links:
     icon: "cursor"
   - title: "Source code"
     link: "https://github.com/wilgru/slipstream-react-app"
-    icon: "code"
+    icon: "github-logo"
 platforms:
   - Web
 tags:

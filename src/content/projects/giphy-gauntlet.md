@@ -8,7 +8,7 @@ platforms:
 links:
   - title: "Source code"
     link: "https://github.com/wilgru/giphy-gauntlet"
-    icon: "code"
+    icon: "github-logo"
 tags:
   - html
   - css
