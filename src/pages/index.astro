@@ -7,7 +7,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 const projects: CollectionEntry<"projects">[] = await getCollection("projects");
 const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
-  a.data.year < b.data.year ? 1 : -1
+  a.data.year < b.data.year ? 1 : -1,
 );
 ---
 
@@ -16,7 +16,7 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
     <header class="heading-container">
       <section class="title-container">
         <h1>William Gruszka</h1>
-        <h2>Software Engineer</h2>
+        <h3>Software Engineer</h3>
       </section>
       <section class="description-container">
         <img
@@ -55,7 +55,7 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
       </section>
     </header>
 
-    <!-- <h1 style="width: 1000px">Projects</h1> -->
+    <h2>Projects</h2>
     <CardList projects={sortedProjects} transition:persist />
   </section>
 </Layout>
@@ -70,6 +70,11 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
     gap: 2rem;
     padding: 2rem 0 0 0;
     box-sizing: border-box;
+  }
+  .homepage-content h2 {
+    opacity: 0;
+    width: 1000px;
+    animation: fadeInFromBottom 1s ease-out forwards 0.5s;
   }
   .heading-container {
     max-width: 1000px;
