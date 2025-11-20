@@ -44,18 +44,6 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
 
       <ul class="info-pills">
         {
-          project.data.links?.map((link) => (
-            <li>
-              <LinkIcon
-                href={link.link}
-                iconName={link.icon}
-                alt={link.title}
-                target="_blank"
-              />
-            </li>
-          ))
-        }
-        {
           project.data.platforms.map((platform) => (
             <li>
               <Pill
@@ -73,6 +61,18 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
                 name={tag.data.name}
                 backgroundColour={"#ececec"}
                 textColour={"#535353"}
+              />
+            </li>
+          ))
+        }
+        {
+          project.data.links?.map((link) => (
+            <li>
+              <LinkIcon
+                href={link.link}
+                iconName={link.icon}
+                alt={link.title}
+                target="_blank"
               />
             </li>
           ))
@@ -115,10 +115,10 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     transition: opacity 0.3s;
     flex: 1;
     background-color: snow;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
@@ -127,7 +127,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
   .preview-image {
     display: flex;
     align-items: center;
-    width: 60%;
+    width: 90%;
   }
   .no-preview-image {
     height: fit-content;
@@ -138,7 +138,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     display: flex;
     flex-direction: column;
     justify-content: start;
-    gap: 2rem;
+    gap: 1rem;
   }
   .details header {
     display: flex;
@@ -154,6 +154,8 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     gap: 0.5rem;
   }
   .description {
+    border-top: solid 2px rgb(241, 241, 241);
+    padding-top: 1rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;

@@ -3,105 +3,104 @@ import Layout from "../layouts/Layout.astro";
 import LinkIcon from "../components/LinkIcon.astro";
 import CardList from "../components/CardList.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
+import LinkButton from "../components/LinkButton.astro";
 
 const projects: CollectionEntry<"projects">[] = await getCollection("projects");
 const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
-  a.data.year < b.data.year ? 1 : -1,
+  a.data.year < b.data.year ? 1 : -1
 );
 ---
 
 <Layout title="William Gruszka">
-  <section class="homepage-content">
+  <div class="homepage-content">
     <header class="heading-container">
-      <section class="title-container">
-        <h1>William Gruszka</h1>
-        <h3>Software Engineer</h3>
-      </section>
-      <section class="description-container">
-        <img
-          src={`${import.meta.env.BASE_URL}/headshot.JPG`}
-          alt="William Gruszka headshot"
-        />
+      <img
+        src={`${import.meta.env.BASE_URL}/headshot.jpeg`}
+        alt="William Gruszka headshot"
+      />
 
-        <div class="description">
-          <p>
-            Sydney based software engineer with experience in agile development,
-            web development using React and Typescript, and cloud services like
-            AWS.
-          </p>
+      <div class="description">
+        <section class="title-section">
+          <h1>William Gruszka</h1>
+          <h3>Software Engineer</h3>
+        </section>
 
-          <summary>
-            <LinkIcon
-              href={"https://github.com/wilgru"}
-              iconName={"github-logo"}
-              alt="Github icon"
-              target="_blank"
-            />
-            <LinkIcon
-              href={"https://www.linkedin.com/in/william-gruszka-a03373227/"}
-              iconName={"linkedin-logo"}
-              alt="linkedIn icon"
-              target="_blank"
-            />
-            <LinkIcon
-              href={"mailto:william.gruszka@icloud.com"}
-              iconName={"envelope"}
-              alt="email icon"
-              target="_blank"
-            />
-          </summary>
-        </div>
-      </section>
+        <p>
+          Sydney based software engineer with experience in agile development,
+          web development using React and Typescript, and cloud services like
+          AWS.
+        </p>
+
+        <section class="links-section">
+          <LinkButton
+            title="github.com/wilgru"
+            href={"https://github.com/wilgru"}
+            iconName={"github-logo"}
+            alt="Github icon"
+          />
+          <LinkButton
+            title="linkedin.com/william-gruszka"
+            href={"https://www.linkedin.com/in/william-gruszka-a03373227/"}
+            iconName={"linkedin-logo"}
+            alt="linkedIn icon"
+          />
+          <LinkButton
+            title="william.gruszka@icloud.com"
+            href={"mailto:william.gruszka@icloud.com"}
+            iconName={"envelope"}
+            alt="email icon"
+          />
+        </section>
+
+        <section class="location-section">
+          <img
+            class="location-pin-icon"
+            src={`${import.meta.env.BASE_URL}/map-pin-fill.svg`}
+            alt="Location pin"
+          />
+          <p>Sydney, NSW Australia</p>
+        </section>
+      </div>
     </header>
 
-    <h2>Projects</h2>
-    <CardList projects={sortedProjects} transition:persist />
-  </section>
+    <!-- <nav class="nav-container">
+      <h2>Projects</h2>
+    </nav> -->
+
+    <div class="content-container">
+      <CardList projects={sortedProjects} transition:persist />
+    </div>
+  </div>
 </Layout>
 
 <style>
   .homepage-content {
     height: 100%;
+    width: 60%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     padding: 2rem 0 0 0;
     box-sizing: border-box;
   }
   .homepage-content h2 {
     opacity: 0;
-    width: 1000px;
     animation: fadeInFromBottom 1s ease-out forwards 0.5s;
   }
   .heading-container {
-    max-width: 1000px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 0 1rem;
-  }
-  .title-container {
-    opacity: 0;
-    animation: fadeInFromBottom 1s ease-out forwards 0.1s;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  .description-container {
     opacity: 0;
     animation: fadeInFromBottom 1s ease-out forwards 0.3s;
     padding: 1.3rem;
     border-radius: 1rem;
     background-color: snow;
-    max-width: 1000px;
     display: flex;
     justify-content: space-between;
     gap: 2rem;
   }
-  .description-container img {
+  .heading-container img {
     border-radius: 0.5rem;
     width: 300px;
     height: auto;
@@ -112,7 +111,20 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
     flex-direction: column;
     justify-content: space-between;
   }
-  .description summary {
+  .description p {
+    font-size: 1.3rem;
+  }
+  .title-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .links-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .location-section {
     border-top: solid 2px rgb(241, 241, 241);
     padding-top: 1rem;
     display: flex;
@@ -120,29 +132,33 @@ const sortedProjects: CollectionEntry<"projects">[] = projects.sort((a, b) =>
     align-items: center;
     gap: 0.5rem;
   }
-  .description p {
-    font-size: 1.3rem;
+  .location-section p {
+    font-size: 1.1rem;
   }
+  .location-pin-icon {
+    max-width: 22px;
+    max-height: 22px;
+    opacity: 0.7;
+  }
+  /* .nav-container {
+    width: 100%;
+    background-color: snow;
+    padding: 1rem;
+    border-radius: 1rem;
+  } */
   @media screen and (max-width: 844px) {
     .homepage-content {
       padding: 2rem 1rem;
+      width: 100%;
     }
     .heading-container {
-      width: 100%;
-      margin: 0 1rem;
-    }
-    .title-container {
-      flex-direction: column;
-      align-items: baseline;
-      gap: 0.5rem;
-    }
-    .description-container {
+      max-width: 100%;
       flex-direction: column;
     }
-    .description-container img {
+    .heading-container img {
       width: unset;
       height: unset;
-      max-width: 400px;
+      max-width: 300px;
     }
     .description {
       gap: 1rem;
