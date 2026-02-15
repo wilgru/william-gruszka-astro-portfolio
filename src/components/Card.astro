@@ -16,11 +16,13 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
 <article class="card">
   {
     project.data.preview ? (
+      <span class="preview-image-container">
       <img
         class="preview-image"
         src={project.data.preview?.src}
         alt={`${project.data.title} preview image`}
       />
+      </span>
     ) : (
       <div class="preview-image">
         <h1 class="no-preview-image">No image</h1>
@@ -38,7 +40,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
             width={250}
           />
         ) : (
-          <h1>{project.data.title}</h1>
+          <h2>{project.data.title}</h2>
         )
       }
 
@@ -113,7 +115,6 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
 <style>
   .card {
     transition: opacity 0.3s;
-    flex: 1;
     background-color: snow;
     padding: 1.5rem;
     border-radius: 1rem;
@@ -124,9 +125,14 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     align-items: center;
     box-sizing: border-box;
   }
-  .preview-image {
+  .preview-image-container {
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  .preview-image {
     width: 90%;
   }
   .no-preview-image {
@@ -134,7 +140,6 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     color: rgb(241, 241, 241);
   }
   .details {
-    min-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -165,7 +170,7 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
     flex-direction: row;
     gap: 0.5rem;
   }
-  @media screen and (max-width: 844px) {
+  @media screen and (max-width: 1026px) {
     .card {
       flex-direction: column;
     }

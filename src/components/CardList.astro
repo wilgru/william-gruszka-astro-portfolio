@@ -22,20 +22,21 @@ const { projects } = Astro.props;
     opacity: 0;
     animation: fadeInFromBottom 1s ease-out forwards 0.7s;
     flex: 1;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: start;
     gap: 1rem;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
     padding-bottom: 2rem;
     box-sizing: border-box;
   }
   #card-list li {
     list-style: none;
   }
-  @media screen and (max-width: 844px) {
+  @media screen and (max-width: 1026px) {
     #card-list {
+      display: flex;
       flex-direction: column;
     }
   }
