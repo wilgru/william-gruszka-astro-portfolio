@@ -9,19 +9,17 @@ interface Props {
 }
 
 const { project } = Astro.props;
-
-const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // Resolve an array of references
 ---
 
 <article class="card">
   {
     project.data.preview ? (
       <span class="preview-image-container">
-      <img
-        class="preview-image"
-        src={project.data.preview?.src}
-        alt={`${project.data.title} preview image`}
-      />
+        <img
+          class="preview-image"
+          src={project.data.preview?.src}
+          alt={`${project.data.title} preview image`}
+        />
       </span>
     ) : (
       <div class="preview-image">
@@ -57,10 +55,10 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
           ))
         }
         {
-          tags.map((tag) => (
+          project.data.tags.map((tag) => (
             <li>
               <Pill
-                name={tag.data.name}
+                name={tag}
                 backgroundColour={"#ececec"}
                 textColour={"#535353"}
               />
@@ -79,10 +77,6 @@ const tags: CollectionEntry<"tags">[] = await getEntries(project.data.tags); // 
             </li>
           ))
         }
-
-        <li>
-          <Pill name={project.data.year} />
-        </li>
       </ul>
     </header>
 

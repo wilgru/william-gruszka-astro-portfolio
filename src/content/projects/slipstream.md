@@ -2,7 +2,8 @@
 title: "slipstream"
 logo: "./slipstream-logo.png"
 preview: "./slipstream-img1.png"
-year: "2023"
+year: 2023
+showcase: false
 links:
   - title: "Live demo"
     link: "https://slipstream-react-app.fly.dev/stream"

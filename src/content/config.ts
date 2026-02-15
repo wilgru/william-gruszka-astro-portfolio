@@ -2,14 +2,6 @@
 import { z, reference, defineCollection } from "astro:content";
 
 // 2. Define your collection(s)
-const tagCollection = defineCollection({
-  type: "data",
-  schema: z.object({
-    name: z.string(),
-    showcase: z.boolean(),
-  }),
-});
-
 const projectCollection = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -25,7 +17,8 @@ const projectCollection = defineCollection({
           message: "GRRR image must be at least 200 pixels wide!",
         })
         .optional(),
-      year: z.string(),
+      year: z.number(),
+      showcase: z.boolean(),
       platforms: z.array(z.string()),
       links: z
         .array(
@@ -36,7 +29,7 @@ const projectCollection = defineCollection({
           }),
         )
         .optional(),
-      tags: z.array(reference("tags")),
+      tags: z.array(z.string()),
       archived: z.boolean().optional(),
     }),
 });
@@ -44,6 +37,5 @@ const projectCollection = defineCollection({
 // 3. Export a single `collections` object to register your collection(s)
 //    This key should match your collection directory name in "src/content"
 export const collections = {
-  tags: tagCollection,
   projects: projectCollection,
 };
