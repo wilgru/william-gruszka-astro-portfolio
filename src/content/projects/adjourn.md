@@ -12,12 +12,13 @@ links:
     link: "https://github.com/wilgru/adjourn-react-app"
     icon: "github-logo"
 platforms:
-  - Web
+  - Desktop
 tags:
   - "Open Source"
   - "React"
   - "Typescript"
-  - "PocketBase"
+  - "Electron"
+  - "Drizzle ORM"
 ---
 
-Note taking app where users write notes in a stream of consciousness that is then compiled into document-like views with a table of contents
+A free and open source notetaking app with modern features while still having a familiar experience
